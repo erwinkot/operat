@@ -1,0 +1,502 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Muli);
+
+body { 
+    /*background-image: url(/static/img/147.jpg);FCFEEB*/
+	background:#ffffd6;
+    margin:0;
+    padding:0;
+    font-family: 'Ubuntu', sans-serif; 
+}
+
+h1, h2, h3, h4, h5 , h6 { 
+    font-family: 'Ubuntu', sans-serif; font-weight:normal;
+}
+
+a {
+    text-decoration:none;
+    color:#5993bb;
+}
+
+a:hover {
+    color:#77b6e2;
+}
+
+a.button, input[type="submit"] {
+    color:#fff;
+    background:#5993bb;
+    border-radius:4px;
+    padding:10px 20px;
+    font-size:14px;
+    border:0;
+}
+
+a.button.light {
+    color:#666;
+    background:#ededed;
+}
+
+.text-left {
+    text-align:left;
+}
+
+.text-right {
+    text-align:right;
+}
+
+
+table {
+    width:47%;
+	float:left;
+    border-spacing:1px;
+    border-collapse: none;
+	margin-top:40px;
+	margin-bottom:40px;
+	box-shadow:5px 5px 10px #000;
+}
+
+#dom-table {
+    width:47%;
+	float:right;
+    border-spacing:1px;
+    border-collapse: none;
+	margin-top:40px;
+	margin-bottom:8px;
+	box-shadow:5px 5px 10px #000;
+}
+
+
+#dzia-table {
+    width:47%;
+	float:left;
+    border-spacing:1px;
+    border-collapse: none;
+	margin-top:40px;
+	margin-bottom:8px;
+	box-shadow:5px 5px 10px #000;
+}
+
+table th, table td {
+    text-align:left;
+    font-size:12px;
+    padding:12px;
+    margin:0;
+}
+
+#td-dom {
+    text-align:left;
+    font-size:12px;
+    padding:12px;
+    margin:0;
+}
+
+tbody tr{
+    background:#1188aa;
+	color:#fff;
+}
+
+#p1 {
+	color:#000;
+	text-shadow:5px 5px 10px #000;
+}
+
+#tr-dom {
+	background:#AA113C;
+    /*background:#97386e;*/
+	color:#fff;
+}
+
+tbody td:nth-child(even) {
+    text-align:right;
+	
+}
+
+tbody tr.subtotal {
+    background:#ccc;
+}
+
+thead th, tbody tr.total {
+    background:#5993bb;
+    color:#fff;
+    font-weight:bold;
+}
+
+table.cart {
+    margin-bottom:40px;
+}
+
+table.cart img {
+    width:180px;
+}
+
+tbody td.num {
+    text-align:right;
+}
+
+td input[type="submit"] {
+    font-size:12px;
+    padding:4px 10px;
+}
+
+form p label, form p input {
+    float:left;
+    clear:both;
+}
+
+form p label {
+    font-size:14px;
+    padding-bottom:4px;
+}
+
+form p input {
+    width:300px;
+    font-size:13px;
+    margin-bottom:10px;
+    padding:10px 12px;
+    border:0;
+    background:#efefef;
+    color:#666;
+    border-radius:4px;
+}
+
+ul {
+   float:center;
+   color:#fff;
+   /*clear:both;*/
+   font-size:13px;
+   margin-top:0px; 
+   padding:10px 0px 0px 0px;
+   list-style-type: none;
+}
+
+
+li {
+   float:center;
+   color:#fff;
+   /*clear:both;*/
+   margin-top:9px; 
+   padding:10px 0px 0px 00px;
+   text-shadow:5px 5px 10px #000;
+}
+
+
+
+
+#subheader {
+    background:#444;
+    color:#444;
+    padding:10px 100px;
+    overflow:auto;
+}
+
+#header {
+	padding:0px 0px 0px 60px;
+    font-size:14px;
+    background:;
+    color:#fff;
+	border-top:1px solid #0033ff;
+    border-bottom:1px solid #ffffd6;
+    overflow:auto;
+	margin-top:0px;
+}
+
+#header .logo {
+    font-family: 'Ubuntu', sans-serif;
+    float:left;
+    /*color:#ff3399;*/
+	color:#1140FD;
+    font-size:30px;
+    margin-right:200px;
+	/*text-shadow:5px 5px 1px #1140FD;*/
+}
+
+#header ul.menu {
+    list-style:none;
+    float:;
+	font-size:12px;
+	font-family: 'Ubuntu', sans-serif;
+    margin-left:960px;
+    padding:0;
+}
+#header ul.menu li {
+    float:left;
+	
+    padding:16px 0px;
+	margin-right:20px;
+}
+
+#header ul.menu li.selected a  {
+    color:#5993bb;
+    font-weight:bold;
+}
+
+#header ul.menu li.selected a:hover {
+	color:#ddd;
+    font-weight:bold;
+}
+
+#header a {
+    color:#f3f7cc;
+}
+
+#header a:hover {
+    color:#fff;
+}
+#header .user {
+    float:right;
+    padding-top:10px;
+}
+
+#subheader .cart {
+    float:right;
+    padding-top:1px;
+}
+
+#content {
+	padding:0px 0px 0px 0px;
+   
+	background:#000;
+}
+
+
+#sidebar {
+    width:25%;
+	min-height: 1390px;
+    padding:30px 10px 0px 0;
+    float:right;
+	margin-right:50px;
+	margin-top:31px;
+	border-left:0px solid #5993bb;
+	/*background:#F2673E;*/
+	background:#5993bb;
+	box-shadow:5px 5px 10px #000;
+	/*C1401A; F2673E*/
+}
+
+#sidebar ul{
+    margin:0;
+    padding:0;
+}
+
+#sidebar ul li {
+    margin:0;
+    list-style:none;
+    padding:3px 8px;
+	font-size:12px;
+}
+
+#sidebar ul li a {
+    display:block;
+	font-family: 'Ubuntu', sans-serif;
+	font-size:14px;
+	font-weight:bold;
+}
+
+#sidebar ul li.selected {
+    background:#5993bb;
+    border-radius:4px;
+}
+
+#sidebar ul li.selected a {
+    color:#ff0000;
+}
+
+
+
+#profilo {
+	background:#5993bb;
+}
+	
+#startite {
+	list-style:none;
+    float:left;
+    margin:0;
+    padding:30px 90px 0 0;
+	font-size:14px;
+	color:#000000;
+}
+
+
+
+
+#topik  {
+	font-weight:normal;
+	color:#fff;
+	min-height: 34px;
+	background: #000;
+	padding:0px 0px 0px 0px;
+	text-align:right;
+	margin-bottom:0px;
+	/*box-shadow:5px 5px 10px #000;*/
+	
+}
+
+#footer1 {
+    background-color: #555;
+    float:center;
+    width: 100%;
+    margin-right:0px; 
+    overflow:hidden;
+	padding:30px 0 40px 0;
+	color: #cccfff;
+}
+
+
+
+#logobh {
+    width:216px;
+	height: 55px;
+	background:;
+	margin-top:5px;
+	margin-bottom:5px;
+	padding-top:0px;
+	padding-bottom:0px;
+	color:#1e3748;
+	font-family: 'Montserrat', sans-serif; font-weight:500;
+	text-align:center;
+	font-size:40px;
+	text-shadow:3px 3px 5px #555;
+}
+
+
+
+#bit {
+	float:left;
+    width:56px;
+	height: 50px;
+	padding-top:5px;
+	margin-left:0px;
+	border-left:0px solid #ffffd6;
+	color:#ffffd6;
+	font-size:34px;
+	background:;
+	text-align:right;
+	text-shadow:3px 3px 3px #333;
+	box-shadow:;
+}
+
+
+
+#house {
+	float:right;
+    width:110px;
+	min-height: 50px;
+	padding-top:5px;
+	margin-left:0px;
+	/*color:#2F94DF;*/
+	color:#5993bb;
+	font-size:34px;
+	border-bottom:0px solid #5993bb;
+	background:;
+	text-shadow:3px 3px 3px #333;
+	text-align:left;
+}
+
+#footer {
+                background-color: #322c35;
+                color: #f2edf4;
+                padding: 25px 50px 10px 30px;
+                font-size: 14px;
+                text-align: center;
+}
+
+section.image {
+                height: 630px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+			
+
+            section.text {
+                max-width: 1170px;
+                padding: 20px;
+                padding: 20px 0;
+                position: relative;
+				
+            }
+
+            section.text .icon {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 50%;
+                bottom: 0;
+				color: #ac9cb7;
+            }
+
+            section.text.left .icon {
+                right: 0;
+                left: 50%;
+				color: #ac9cb7;
+            }
+
+            section.text .icon .fa {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 200px;
+            }
+
+            section.text .takitekst {
+                margin-left: 55%;
+				color: #b2a10c;
+            }
+
+            section.text.left .takitekst {
+                margin-left: 30px;
+                margin-right: 50%;
+				color: #96908b;
+            }
+
+            section.text h2 {
+                font-size: 36px;
+                font-weight: normal;
+				color: #ac9cb7;
+}
+
+#uptext1 {
+				background-color: none;
+                color: #cc0000;
+                padding: 430px 65px 0px 0px;
+				
+                font-size: 48px;
+                text-align: right;
+}
+
+#uptext1 p {
+	font-family: 'Muli', sans-serif; font-weight:normal;
+}
+
+#scop {
+		text-align: center;
+}
+
+#uptext2 {
+				background-color: none;
+                color: #ac9cb7;
+				padding: 20px 0px 0px 20px;
+                font-size: 28px;
+                text-align: left;
+}
+
+#uptext3 {
+				background-color: none;
+                color: #e8edec;
+				padding: 20px 0px 0px 20px;
+                font-size: 28px;
+                text-align: left;
+}
+
+#taca {
+				background-color: none;
+                color: #e8edec;
+				padding: 20px 0px 0px 20px;
+                font-size: 28px;
+                text-align: left;
+}

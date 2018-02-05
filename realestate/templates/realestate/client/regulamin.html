@@ -1,0 +1,47 @@
+{% extends "realestate/basereal.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Cennik{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div id="header">
+    
+     <span class="logo"><a href="{% url "bithouse:startbit" %}"><div id="logobh">BITHOUSE</div></a></span>
+	 
+    <ul class="menu">
+	<li>
+        <a href="{% url "bithouse:ogloszenia" %}">Ogłoszenia</a>
+      </li>
+      <li>
+        <a href="{% url "realestate:startre" %}">Strefa klienta</a>
+      </li>
+      
+      <li>
+        <a href="{% url "realestate:cennik" %}">Cennik</a>
+      </li>
+     <li class="selected">
+        <a href="{% url "realestate:regulamin" %}">Regulamin</a>
+      </li>
+      <li>
+        <a href="{% url "login" %}">Strona logowania</a>
+      </li>
+	  <li>
+        <a href="{% url "realestate:rejestrnieruchom" %}">Rejestracja nieruchomości</a>
+      </li>
+    </ul>
+  
+  
+  </div>
+
+  <div id="sidebar">
+    <h3>Okno na świat</h3>
+    
+  </div>
+  <div id="main" class="product-list">
+    <h1>Fantastyczny regulamin w Bithouse</h1><br>
+	</div>
+	
+{% endblock %}

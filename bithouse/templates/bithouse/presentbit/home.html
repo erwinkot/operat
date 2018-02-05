@@ -1,0 +1,163 @@
+{% extends "bithouse/homebase.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Realestate{% endif %}
+{% endblock %}
+
+{% block content %}
+
+ <section class="image"  style="background-image: url('/static/img/chicago-skyline.jpg')">
+ 
+<div id="header">
+    
+     <span class="logo"><a href="{% url "bithouse:startbit" %}"><div id="logobh">BITHOUSE</div></a></span>
+	 
+    <ul class="menu">
+		
+		<li class="selected">
+        <a href="{% url "bithouse:home" %}">HOME</a>
+		</li>
+		<li>
+        <a href="{% url "bithouse:ogloszenia" %}">OGŁOSZENIA</a>
+		</li>
+		
+		<li {% if section == "people" %}class="selected"{% endif %}>
+        <a href="{% url "realestate:startre" %}">STREFA KLIENTA</a>
+		</li>
+		<li {% if section == "images" %}class="selected"{% endif %}>
+        <a href="#">PRASA</a>
+		</li>
+    </ul>
+  </div>
+
+   <div id="uptext1">
+  
+  <p>ŚWIAT NIERUCHOMOŚCI </p>
+  
+  
+  
+  </div>
+  </section>
+
+        <section class="text">
+            <div class="container">
+			
+                <div class="icon">
+                    <span class="fa"><p>I</p></span>
+                </div>
+                <div class="takitekst">
+                    <h2>Idea prowadzi i tworzy</h2>
+
+                    <p>Czemu, Cieniu, odjeżdżasz, ręce złamawszy na pancerz,
+Przy pochodniach, co skrami grają około twych kolan? -
+Miecz wawrzynem zielony i gromnic płakaniem dziś polan;
+Rwie się sokół i koń twój podrywa stopę jak tancerz.
+- Wieją, wieją proporce i zawiewają na siebie,
+Jak namioty ruchome wojsk koczujących po niebie.
+Trąby długie we łkaniu aż się zanoszą i znaki
+Pokłaniają się z góry opuszczonymi skrzydłami
+Jak włóczniami przebite smoki, jaszczury i ptaki...
+Jako wiele pomysłów, któreś dościgał włóczniami...</p>
+
+                    <p>Idą panny żałobne: jedne, podnosząc ramiona
+Ze snopami wonnymi, które wiatr w górze rozrywa,
+Drugie, w konchy zbierając łzę, co się z twarzy odrywa,
+Inne, drogi szukając, choć przed wiekami zrobiona...
+Inne, tłukąc o ziemię wielkie gliniane naczynia,
+Czego klekot w pękaniu jeszcze smętności przyczynia.</p>
+					<p>Chłopcy biją w topory pobłękitniałe od nieba,
+W tarcze rude od świateł biją pachołki służebne;
+Przeogromna chorągiew, co się wśród dymów koleba,
+Włóczni ostrzem o łuki, rzekłbyś, oparta pod-niebne...</p>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="image" style="background-image: url('/static/img/pexels-photo-414462.jpeg');">
+		<div id="uptext2"><h1>Świat na wyciągnięcie ręki</h1></div>
+		</section>
+
+        <section class="text left">
+            <div class="container">
+                <div class="icon">
+                    <span class="fa"><p>T</p></span>
+                </div>
+                <div class="takitekst">
+                    <h2>Twój dom, twoja twierdza</h2>
+
+                    <p>Czemu, Cieniu, odjeżdżasz, ręce złamawszy na pancerz,
+Przy pochodniach, co skrami grają około twych kolan? -
+Miecz wawrzynem zielony i gromnic płakaniem dziś polan;
+Rwie się sokół i koń twój podrywa stopę jak tancerz.
+- Wieją, wieją proporce i zawiewają na siebie,
+Jak namioty ruchome wojsk koczujących po niebie.
+Trąby długie we łkaniu aż się zanoszą i znaki
+Pokłaniają się z góry opuszczonymi skrzydłami
+Jak włóczniami przebite smoki, jaszczury i ptaki...
+Jako wiele pomysłów, któreś dościgał włóczniami...</p>
+
+                    <p>Idą panny żałobne: jedne, podnosząc ramiona
+Ze snopami wonnymi, które wiatr w górze rozrywa,
+Drugie, w konchy zbierając łzę, co się z twarzy odrywa,
+Inne, drogi szukając, choć przed wiekami zrobiona...
+Inne, tłukąc o ziemię wielkie gliniane naczynia,
+Czego klekot w pękaniu jeszcze smętności przyczynia.</p>
+
+                    <p>Chłopcy biją w topory pobłękitniałe od nieba,
+W tarcze rude od świateł biją pachołki służebne;
+Przeogromna chorągiew, co się wśród dymów koleba,
+Włóczni ostrzem o łuki, rzekłbyś, oparta pod-niebne...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="image" style="background-image: url('/static/img/pexels-photo (1).jpg');">
+		<div id="uptext3"><h1>Harmonia natury i kultury</h1></div>
+		</section>
+
+        <section class="text">
+            <div class="container">
+                <div class="icon">
+                    <span class="fa"><p>D</p></span>
+                </div>
+                <div class="takitekst">
+                    <h2>Dom i życie</h2>
+
+                    <p>Czemu, Cieniu, odjeżdżasz, ręce złamawszy na pancerz,
+Przy pochodniach, co skrami grają około twych kolan? -
+Miecz wawrzynem zielony i gromnic płakaniem dziś polan;
+Rwie się sokół i koń twój podrywa stopę jak tancerz.
+- Wieją, wieją proporce i zawiewają na siebie,
+Jak namioty ruchome wojsk koczujących po niebie.
+Trąby długie we łkaniu aż się zanoszą i znaki
+Pokłaniają się z góry opuszczonymi skrzydłami
+Jak włóczniami przebite smoki, jaszczury i ptaki...
+Jako wiele pomysłów, któreś dościgał włóczniami...</p>
+
+                    <p>Idą panny żałobne: jedne, podnosząc ramiona
+Ze snopami wonnymi, które wiatr w górze rozrywa,
+Drugie, w konchy zbierając łzę, co się z twarzy odrywa,
+Inne, drogi szukając, choć przed wiekami zrobiona...
+Inne, tłukąc o ziemię wielkie gliniane naczynia,
+Czego klekot w pękaniu jeszcze smętności przyczynia.</p>
+
+                    <p>Chłopcy biją w topory pobłękitniałe od nieba,
+W tarcze rude od świateł biją pachołki służebne;
+Przeogromna chorągiew, co się wśród dymów koleba,
+Włóczni ostrzem o łuki, rzekłbyś, oparta pod-niebne...</p>
+					
+                </div>
+            </div>
+        </section>
+
+        <section class="image" style="background-image: url('/static/img/pexels-photo-566862.jpeg');"></section>
+<footer id="footer">
+				<h2>BitHouse Sp z o.o.</h2>
+		<p>Wrocław, ul. Wrocławska 1</p>
+		<p>TEL: 570 570 570</p>
+                   <p id="scop">  &copy; 2017 BitHouse</p>
+        </footer>
+	
+{% endblock %}

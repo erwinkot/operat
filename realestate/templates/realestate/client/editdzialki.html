@@ -1,0 +1,44 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych firmowych{% endblock %}
+
+{% block content %}
+  <h1>Edycja danych szczegółowych dla działki</h1>
+  <h4>Numer transakcji {{ nieruchomosc.id }} {{ nieruchomosc.nazwa }} {{ nieruchomosc.ulica }} {{ nieruchomosc.numer }} {{ nieruchomosc.miejscowosc }}</h4>
+  
+
+  <form action="." method="post" enctype="multipart/form-data">
+    <div id=formo1>
+		<p id=nag1>Opis działki</p><br>
+		<div id=f11>Rodzaj działki {{ dzialki_form.typ_dzialki }}</div>
+		<div id=f11>Powierzchnia działki {{ dzialki_form.powi_dzialki }} m2</div>
+		<div id=f11>Status działki {{ dzialki_form.status_dzial }}</div>
+		<div id=f11>Przeznaczenie działki {{ dzialki_form.przeznaczenie_dzial }}</div>
+		<div id=f11>Dojazd {{ dzialki_form.dojazd }}</div>
+		<div id=f16>Informacje o planie zagospodarowania {{ dzialki_form.info_mpzp }}</div>
+	</div>
+	<div id=formo2>
+		<p id=nag1>Media</p><br>
+		<div id=f11>Prąd {{ dzialki_form.prad }}</div>
+		<div id=f11>Gaz {{ dzialki_form.gaz }}</div>
+		<div id=f11>Woda {{ dzialki_form.woda }}</div>
+		<div id=f11>Kanalizacja {{ dzialki_form.kanalizacja }}</div>
+		<div id=f11>Szambo {{ dzialki_form.rodzaj_szambo }}</div>
+		<div id=f11>Oczyszczalnia ścieków {{ dzialki_form.oczyszczalnia }}</div>
+		<div id=f11>telefon {{ dzialki_form.telefon }}</div>
+	</div>
+	<div id=formo5>
+		<p id=nag1>Otoczenie</p><br>
+		<div id=f52>Las {{ dzialki_form.las }}</div>
+		<div id=f51>Góry {{ dzialki_form.gory }}</div>
+		<div id=f51>Jezioro {{ dzialki_form.jezioro }}</div>
+		<div id=f51>Morze {{ dzialki_form.morze }}</div>
+		<div id=f51>Teren otwarty {{ dzialki_form.teren_otwarty }}</div>
+	</div>
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+  <div id=inne1>
+  <h1><a href="{% url "realestate:addimageitem" nieruchomosc.id %}">Edytuj zdjęcia</h1>
+  </div>
+{% endblock %}

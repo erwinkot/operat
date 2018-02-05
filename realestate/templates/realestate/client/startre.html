@@ -1,0 +1,48 @@
+{% extends "realestate/basereal.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Realestate{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div id="header">
+    
+     <span class="logo"><a href="{% url "bithouse:startbit" %}"><div id="logobh">BITHOUSE</div></a></span>
+	 
+    <ul class="menu">
+	<li>
+        <a href="{% url "bithouse:ogloszenia" %}">OGŁOSZENIA</a>
+      </li>
+      <li class="selected">
+        <a href="{% url "realestate:startre" %}">STREFA KLIENTA</a>
+      </li>
+      
+      <li>
+        <a href="{% url "realestate:cennik" %}">CENNIK</a>
+      </li>
+     <li>
+        <a href="{% url "realestate:regulamin" %}">REGULAMIN</a>
+      </li>
+      <li>
+        <a href="{% url "login" %}">STRONA LOGOWANIA</a>
+      </li>
+	  <li>
+        <a href="{% url "realestate:rejestrnieruchom" %}">REJESTRACJA NIERUCHOMOŚCI</a>
+      </li>
+    </ul>
+  
+  
+  </div>
+
+  <div id="sidebar">
+    <h3>Motet</h3>
+    
+  </div>
+  <div id="main">
+    <br><h3>Aby zarejestrować swoją nieruchomość w Bithouse, <a href="{% url "login" %}">zaloguj </a> się do swojego konta.</h3><br>
+	<h3>Jeżeli nie masz jeszcze konta w Bithouse, załóż <a href="{% url "register" %}"> konto.</h3>
+	<div id=logos>BITHOUSE</div>
+  </div>
+{% endblock %}

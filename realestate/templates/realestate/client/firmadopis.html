@@ -1,0 +1,35 @@
+{% extends "baseaccount.html" %}
+
+{% block title %}Edycja danych firmowych{% endblock %}
+
+{% block content %}
+  
+  
+  <h3>Wpisz NIP jeszcze raz w celu potwierdenia<h3>
+ 
+  
+	<form action="." method="post">
+    {{ spr_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Sprwdź"></p>
+  </form>
+  
+  <p>{{ komendana }}</p>
+   <h2>Profil użytkownika</h2>
+  
+          
+			
+            <p>{{ profile.user }} {{ profile.miejscowosc }} {{ profile.firma }}</p><br>
+			
+			
+		 {% for p in profilefirm %}
+	
+    <h1>{{ p.nazwa }} </h1>
+	<h2>{{ p.miejscowosc }}</h2>
+	<h2>NIP: {{ p.nip }}</h2>
+  	{% endfor %}
+  
+  
+  
+  
+{% endblock %}

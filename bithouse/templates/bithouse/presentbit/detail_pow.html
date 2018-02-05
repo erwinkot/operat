@@ -1,0 +1,162 @@
+{% extends "bithouse/bitbase.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.title }}{% else %}Ogłoszenia detale{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<script src="/static/js/detailkom.js">
+</script>
+
+<div id=topik>
+	Nr ogłoszenia: {{ nieruchomosc.id }} {{ nieruchomosc.profil }} Cena: {{ nieruchomosc.cena }} zł {{ nieruchomosc.miejscowosc }}</div>
+</div>
+
+<div id=prezentacja>
+	<div id=prezentl>
+			<img class=det src="{{ nieruchomosc.image.url }}">
+	</div>
+	
+	<div id=prezentr>
+	dupa blada
+	</div>
+	
+	<div id=slider>
+	{% for imageitem in imageitems %}
+			<img class=prez src="{{ imageitem.image.url }}">
+			{% endfor %}
+	</div>
+	
+</div>
+	
+<div id=sidebar>
+</div>
+     
+<div id=main>
+	
+	 
+		
+	<div id=szczegdet>      
+		<div id=dom-pre1>
+			<div id=dzia-miejscowosc>{{ nieruchomosc.miejscowosc }}</div>
+			<div id=dzia-nazwa> {{ nieruchomosc.nazwa_opis }}</div>
+			<div id=dzia-cena><p class=pre2>cena zł </p>{{ nieruchomosc.cena }} 
+				<p class=pre2>cena/m2 {{ nieruchomosc.cenamq }} zł </p>
+			</div>
+			<div id=dzia-profil>komercyjne</div>
+			<div id=dzia-adres>	{{ nieruchomosc.ulica }} {{ nieruchomosc.numer }} {{ nieruchomosc.kod_pocztowy }}</div>
+			
+		</div>
+		<div id=domy>
+			<table>
+				<tr><td>powierzchnia nieruchomości</td><td id=p1>{{ nieruchomosc.komercyjnes.powierz_nieruchomosci }}</td></tr>
+				<tr><td>powierzchnia działki</td><td id=p1>{{ nieruchomosc.komercyjnes.powierz_dzialki }}</td></tr>
+				<tr><td>status działki</td><td id=p1>{{ nieruchomosc.komercyjnes.status_dzial }}</td></tr>
+				<tr><td>rodzaj nieruchomości</td><td id=p1>{{ nieruchomosc.komercyjnes.rodzaj_nieruchom }}</td></tr>
+				<tr><td>część czy całość</td><td id=p1>{{ nieruchomosc.komercyjnes.pozycja_nieruchom }}</td></tr>
+				<tr><td>rodzaj materiału</td><td id=p1>{{ nieruchomosc.komercyjnes.rodz_materialu }}</td></tr>
+				<tr><td>rodzaj dachu</td><td id=p1>{{ nieruchomosc.komercyjnes.dach }}</td></tr>
+				<tr><td>pokrycie dachu</td><td id=p1>{{ nieruchomosc.komercyjnes.pokrycie_dach }}</td></tr>
+				<tr><td>stan wykończenia </td><td id=p1>{{ nieruchomosc.komercyjnes.stan_wykonczenia }}</td></tr>
+				<tr><td>rodzaj okien</td><td id=p1>{{ nieruchomosc.komercyjnes.okna }}</td></tr>
+				<tr><td>rodzaj posadzki</td><td id=p1>{{ nieruchomosc.komercyjnes.posadzka }}</td></tr>
+				<tr><td>rok budowy</td><td id=p1>{{ nieruchomosc.komercyjnes.rok_budowy }}</td></tr>
+			</table>
+			
+			<table id=dom-table>
+				<tr id=tr-dom><td>ilość kondygnacji</td><td id=p1>{{ nieruchomosc.komercyjnes.ilosc_kond }}</td></tr>
+				<tr id=tr-dom><td>ilość pokoi</td><td id=p1>{{ nieruchomosc.komercyjnes.ilosc_pokoi }}</td></tr>
+				<tr id=tr-dom><td>parking</td><td id=p1>{{ nieruchomosc.komercyjnes.parking }}</td></tr>
+				<tr id=tr-dom><td>ogrzewanie</td><td id=p1>{{ nieruchomosc.komercyjnes.ogrzewanie }}</td></tr>
+				<tr id=tr-dom><td>ogrodzenie</td><td id=p1>{{ nieruchomosc.komercyjnes.ogrodzenie }}</td></tr>
+				<tr id=tr-dom><td>dojazd</td><td id=p1>{{ nieruchomosc.komercyjnes.dojazd }}</td></tr>
+				
+			</table>
+			
+			<div id=kom-mpzp>Informacje o mpzp
+				
+			</div>
+		</div>
+		<div id=dom-element-dodat>	
+			<div id=mie-media>Media
+				<ul>
+					<li id=dommedia0>{{ nieruchomosc.komercyjnes.prad }}</li>
+					<li id=dommedia1>{{ nieruchomosc.komercyjnes.gaz }}</li>
+					<li id=dommedia2>{{ nieruchomosc.komercyjnes.woda }}</li>
+					<li id=dommedia3>{{ nieruchomosc.komercyjnes.kanalizacja }}</li>
+					<li id=dommedia4>{{ nieruchomosc.komercyjnes.szambo }}</li>
+					<li id=dommedia5>{{ nieruchomosc.komercyjnes.oczyszczalnia }}</li>
+					<li id=dommedia6>{{ nieruchomosc.komercyjnes.telefon }}</li>
+					<li id=dommedia7>{{ nieruchomosc.komercyjnes.internet }}</li>
+					<li id=dommedia8>{{ nieruchomosc.komercyjnes.tel_kablowa }}</li>
+				</ul>
+			</div>
+			
+			<div id=mie-ogrzew>Ogrzewanie
+				<ul>
+					<li id=domogrzew0>{{ nieruchomosc.komercyjnes.miejskie }}</li>
+					<li id=domogrzew1>{{ nieruchomosc.komercyjnes.gazowe }}</li>
+					<li id=domogrzew2>{{ nieruchomosc.komercyjnes.olejowe }}</li>
+					<li id=domogrzew3>{{ nieruchomosc.komercyjnes.elektryczne }}</li>
+					<li id=domogrzew4>{{ nieruchomosc.komercyjnes.weglowe }}</li>
+					<li id=domogrzew5>{{ nieruchomosc.komercyjnes.piece_kaflowe }}</li>
+					<li id=domogrzew6>{{ nieruchomosc.komercyjnes.kominkowe }}</li>
+					<li id=domogrzew7>{{ nieruchomosc.komercyjnes.kolektor_sloneczny }}</li>
+					<li id=domogrzew8>{{ nieruchomosc.komercyjnes.pompa_ciepla }}</li>
+					<li id=domogrzew9>{{ nieruchomosc.komercyjnes.pompa_ciepla }}</li>
+				</ul>
+			</div>
+			
+			<div id=mie-zabezp>Zabezpieczenia
+				<ul>
+					<li id=domzabezp0>{{ nieruchomosc.komercyjnes.teren_zamkniety }}</li>
+					<li id=domzabezp1>{{ nieruchomosc.komercyjnes.monitoring }}</li>
+					<li id=domzabezp2>{{ nieruchomosc.komercyjnes.alarm }}</li>
+					<li id=domzabezp3>{{ nieruchomosc.komercyjnes.drzwi_anty }}</li>
+					<li id=domzabezp4>{{ nieruchomosc.komercyjnes.rolety }}</li>
+					<li id=domzabezp5>{{ nieruchomosc.komercyjnes.domofon }}</li>
+				</ul>
+			</div>
+			
+			<div id=kom-otocz>Otoczenie
+				<ul>
+					<li id=domotocz0>{{ nieruchomosc.komercyjnes.las }}</li>
+					<li id=domotocz1>{{ nieruchomosc.komercyjnes.gory }}</li>
+					<li id=domotocz2>{{ nieruchomosc.komercyjnes.jezioro }}</li>
+					<li id=domotocz3>{{ nieruchomosc.komercyjnes.morze }}</li>
+					<li id=domotocz4>{{ nieruchomosc.komercyjnes.teren_otwarty }}</li>
+					<li id=domotocz5>{{ nieruchomosc.komercyjnes.teren_przemyslowy }}</li>
+					<li id=domotocz6>{{ nieruchomosc.komercyjnes.teren_zdrojowy }}</li>
+					<li id=domotocz7>{{ nieruchomosc.komercyjnes.teren_turystyczny }}</li>
+				</ul>
+			</div>
+			
+			<div id=mie-wypos>Wyposażenie
+				<ul>
+					<li id=domwypos0>{{ nieruchomosc.komercyjnes.meble }}</li>
+					<li id=domwypos1>{{ nieruchomosc.komercyjnes.meble_czesc }}</li>
+					<li id=domwypos2>{{ nieruchomosc.komercyjnes.kuchenka }}</li>
+					<li id=domwypos3>{{ nieruchomosc.komercyjnes.pralka }}</li>
+					<li id=domwypos4>{{ nieruchomosc.komercyjnes.lodowka }}</li>
+					<li id=domwypos5>{{ nieruchomosc.komercyjnes.zmywarka }}</li>
+					<li id=domwypos6>{{ nieruchomosc.komercyjnes.piekarnik }}</li>
+					<li id=domwypos7>{{ nieruchomosc.komercyjnes.mikrofala }}</li>
+					<li id=domwypos8>{{ nieruchomosc.komercyjnes.telewizor }}</li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+	<div id=szczegdet1>	
+		<p class=pre1>Autorski opis nieruchomości</p>
+		<div id=dom-info>
+			{{ nieruchomosc.opis_nieruchomosci }}
+		</div>
+					
+	</div>
+</div>		
+  
+{% endblock %}

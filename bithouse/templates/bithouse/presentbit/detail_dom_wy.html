@@ -1,0 +1,186 @@
+{% extends "bithouse/bitbase.html" %}
+{% load static %}
+
+{% block title %}
+  {% if nieruchomosc %}Dom {{ nieruchomosc.id }}{% else %}Ogłoszenia dom{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<div id="header">
+    
+     <span class="logo"><a href="{% url "bithouse:startbit" %}"><div id="logobh">BITHOUSE</div></a></span>
+	 
+    <ul class="menu">
+		
+		<li>
+        <a href="{% url "bithouse:home" %}">HOME</a>
+		</li>
+		<li class="selected">
+        <a href="{% url "bithouse:ogloszenia" %}">OGŁOSZENIA</a>
+		</li>
+		
+		<li>
+        <a href="{% url "realestate:startre" %}">STREFA KLIENTA</a>
+		</li>
+		<li {% if section == "images" %}class="selected"{% endif %}>
+        <a href="#">PRASA</a>
+		</li>
+    </ul>
+  </div>
+
+<script src="/static/js/detaildom.js">
+</script>
+
+<div id="topik">
+	<a href="{% url "bithouse:domy_wy" %}"><div id=po1>d o m y </div></a>
+	<a href="{% url "bithouse:domy_wy" %}"><div id=po3>w y n a j e m</div></a>
+	<div id=po2> {{ nieruchomosc.profil }}&nbsp&nbsp&nbsp&nbsp {{ nieruchomosc.cena }} zł&nbsp&nbsp&nbsp&nbsp {{ nieruchomosc.miejscowosc }}&nbsp&nbsp&nbsp&nbsp  nr ogłoszenia: {{ nieruchomosc.id }}</div>
+</div>
+
+<a href="{% url "bithouse:domy_wy" %}"><div id="powrot">
+	p o w r ó t
+</div></a>
+ 
+ 
+<div id=prezentacja>
+	<div id=prezentl>
+		<div id=sldiv><img id="sl" src="/static/img/stl1.png"></div>
+		
+			<img id="photo" src="{{ nieruchomosc.image.url }}">
+			
+		<div id=spdiv><img id="sp" src="/static/img/stp1.png"></div>
+	</div>
+	
+	<div id=prezentr>
+		
+		<p>Sprzedaż</p>
+
+	</div>
+	
+	<div id=slider>
+	{% for imageitem in imageitems %}
+			<img class=prez src="{{ imageitem.image.url }}">
+			{% endfor %}
+	</div>
+</div>
+	
+<div id=sidebar>
+</div>
+     
+<div id=main>
+	
+	 
+		
+	<div id=szczegdet>      
+		<div id=dom-pre1>
+			<div id=dzia-miejscowosc>{{ nieruchomosc.miejscowosc }}</div>
+			<div id=dzia-nazwa> {{ nieruchomosc.nazwa_opis }}</div>
+			<div id=dzia-cena><p class=pre2>cena zł </p>{{ nieruchomosc.cena }} 
+				<p class=pre2>cena/m2 {{ nieruchomosc.cenamq }} zł </p>
+			</div>
+			<div id=dzia-profil>dom</div>
+			<div id=dzia-adres>	{{ nieruchomosc.ulica }} {{ nieruchomosc.numer }} {{ nieruchomosc.kod_pocztowy }}</div>
+			
+		</div>
+		<div id=domy>
+			<table>
+				<tr><td>powierzchnia domu</td><td id=p1>{{ nieruchomosc.domys.powierz_domu }}</td></tr>
+				<tr><td>powierzchnia działki</td><td id=p1>{{ nieruchomosc.domys.powierz_dzial }}</td></tr>
+				<tr><td>status działki</td><td id=p1>{{ nieruchomosc.domys.status_dzial }}</td></tr>
+				<tr><td>rodzaj domu</td><td id=p1>{{ nieruchomosc.domys.rodzaj_domu }}</td></tr>
+				<tr><td>rok budowy</td><td id=p1>{{ nieruchomosc.domys.rok_budowy }}</td></tr>
+				<tr><td>rodzaj materiału</td><td id=p1>{{ nieruchomosc.domys.rodz_materialu }}</td></tr>
+				<tr><td>dach</td><td id=p1>{{ nieruchomosc.domys.dach }}</td></tr>
+				<tr><td>pokrycie dachu</td><td id=p1>{{ nieruchomosc.domys.pokrycie_dach }}</td></tr>
+				<tr><td>stan wykończenia </td><td id=p1>{{ nieruchomosc.domys.stan_wykonczenia }}</td></tr>
+				<tr><td>rodzaj okien</td><td id=p1>{{ nieruchomosc.domys.okna }}</td></tr>
+			</table>
+			
+			<table id=dom-table>
+				<tr id=tr-dom><td>ilość kondygnacji</td><td id=p1>{{ nieruchomosc.domys.ilosc_kond }}</td></tr>
+				<tr id=tr-dom><td>ilość pokoi</td><td id=p1>{{ nieruchomosc.domys.ilosc_pokoi }}</td></tr>
+				<tr id=tr-dom><td>ilość łazienek</td><td id=p1>{{ nieruchomosc.domys.ilosc_lazen }}</td></tr>
+				<tr id=tr-dom><td>ilość kuchni</td><td id=p1>{{ nieruchomosc.domys.ilosc_kuchni }}</td></tr>
+				<tr id=tr-dom><td>rodzaj ogrodzenia</td><td id=p1>{{ nieruchomosc.domys.ogrodzenie }}</td></tr>
+				<tr id=tr-dom><td>rodzaj dojazdu</td><td id=p1>{{ nieruchomosc.domys.dojazd }}</td></tr>
+				
+			</table>
+			
+			<div id=dom-dodatki>Elementy dodatkowe
+				<ul>
+					<li id=domdodatki0>{{ nieruchomosc.domys.piwnice }}</li>
+					<li id=domdodatki1>{{ nieruchomosc.domys.garaz }}</li>
+					<li id=domdodatki2>{{ nieruchomosc.domys.poddasze }}</li>
+					<li id=domdodatki3>{{ nieruchomosc.domys.basen }}</li>
+					<li id=domdodatki4>{{ nieruchomosc.domys.klimatyzacja }}</li>
+					
+				</ul>
+			</div>
+		</div>
+		<div id=dom-element-dodat>	
+			<div id=dom-media>Media
+				<ul>
+					<li id=dommedia0>{{ nieruchomosc.domys.prad }}</li>
+					<li id=dommedia1>{{ nieruchomosc.domys.gaz }}</li>
+					<li id=dommedia2>{{ nieruchomosc.domys.woda }}</li>
+					<li id=dommedia3>{{ nieruchomosc.domys.kanalizacja }}</li>
+					<li id=dommedia4>{{ nieruchomosc.domys.szambo }}</li>
+					<li id=dommedia5>{{ nieruchomosc.domys.oczyszczalnia }}</li>
+					<li id=dommedia6>{{ nieruchomosc.domys.telefon }}</li>
+					<li id=dommedia7>{{ nieruchomosc.domys.internet }}</li>
+					<li id=dommedia8>{{ nieruchomosc.domys.tel_kablowa }}</li>
+				</ul>
+				
+			</div>
+			
+			<div id=dom-ogrzew>Ogrzewanie
+				<ul>
+					<li id=domogrzew0>{{ nieruchomosc.domys.miejskie }}</li>
+					<li id=domogrzew1>{{ nieruchomosc.domys.gazowe }}</li>
+					<li id=domogrzew2>{{ nieruchomosc.domys.olejowe }}</li>
+					<li id=domogrzew3>{{ nieruchomosc.domys.elektryczne }}</li>
+					<li id=domogrzew4>{{ nieruchomosc.domys.weglowe }}</li>
+					<li id=domogrzew5>{{ nieruchomosc.domys.piece_kaflowe }}</li>
+					<li id=domogrzew6>{{ nieruchomosc.domys.kominkowe }}</li>
+					<li id=domogrzew7>{{ nieruchomosc.domys.kolektor_sloneczny }}</li>
+					<li id=domogrzew8>{{ nieruchomosc.domys.pompa_ciepla }}</li>
+					<li id=domogrzew9>{{ nieruchomosc.domys.biomasa }}</li>
+				</ul>
+			</div>
+			
+			<div id=dom-zabezp>Zabezpieczenia
+				<ul>
+					<li id=domzabezp0>{{ nieruchomosc.domys.teren_zamkniety }}</li>
+					<li id=domzabezp1>{{ nieruchomosc.domys.monitoring }}</li>
+					<li id=domzabezp2>{{ nieruchomosc.domys.alarm }}</li>
+					<li id=domzabezp3>{{ nieruchomosc.domys.drzwi_anty }}</li>
+					<li id=domzabezp4>{{ nieruchomosc.domys.rolety }}</li>
+					<li id=domzabezp5>{{ nieruchomosc.domys.domofon }}</li>
+					
+				</ul>
+				
+			</div>
+			
+			<div id=dom-otocz>Otoczenie
+				<ul>
+					<li id=domotocz0>{{ nieruchomosc.domys.las }}</li>
+					<li id=domotocz1>{{ nieruchomosc.domys.gory }}</li>
+					<li id=domotocz2>{{ nieruchomosc.domys.jezioro }}</li>
+					<li id=domotocz3>{{ nieruchomosc.domys.morze }}</li>
+					<li id=domotocz4>{{ nieruchomosc.domys.teren_otwarty }}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id=szczegdet1>	
+		<p class=pre1>Autorski opis nieruchomości</p>
+		<div id=dom-info>
+			{{ nieruchomosc.opis_nieruchomosci }}
+		</div>
+					
+	</div>
+</div>		
+  
+{% endblock %}

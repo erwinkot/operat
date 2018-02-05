@@ -1,0 +1,59 @@
+{% extends "realestate/baserejestr.html" %}
+
+{% block title %}Wyświetl coś{% endblock %}
+
+{% block content %}
+  
+  
+  <h3>Wyświetl coś<h3>
+ 
+  
+	<form action="." method="post">
+    {{ spr_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Sprwdź"></p>
+  </form>
+   <h2>Dane firmy</h2>
+            
+          
+     
+  
+  <h1>Probino w dupę</h1>
+  
+
+            <p>{{ user }} {{ user.first_name }} {{ user.last_name }}</p>
+			
+			<p>{{ user.email }} {{ user.profile.status }} {{ user.profile.firma }}</p>
+			
+			<p>{{ user.profile.firma.nip }} {{ user.profile.firma.rodzaj_firmy }}</p>
+			
+	<table class="cart">
+      <tbody>			
+			
+	{% for n in nieruchomoscs %}
+          
+	
+		<tr>
+                        
+			<td>{{ n.nazwa }}</td>
+			<td>{{ n.profil }}</td>
+			<td>{{ n.gmina }}</td>
+            <td>{{ n.oferent }}</td>
+            <td>{{ n.cena }} </td>
+            <td>{{ n.cenamq }} zł </td>
+			<td>{{ n.dzialki.powi_dzial }} </td>
+			<td>{{ n.dzialki.status_dzial }} </td>
+			<td>{{ n.dzialki.przeznaczenie_dzial }} </td>
+			<td>{{ n.dzialki.info_mpzp }}			
+          </tr>
+            
+          
+      {% endfor %}  
+	</tbody>
+</table>	
+   <h1>Jebał ich Pies</h1>
+  
+  
+  
+  
+{% endblock %}

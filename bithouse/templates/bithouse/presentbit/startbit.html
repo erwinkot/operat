@@ -1,0 +1,19 @@
+{% extends "bithouse/starter.html" %}
+{% load static %}
+
+{% block title %}
+  BitHouse
+{% endblock %}
+
+{% block content %}
+  
+  
+  <div id="startbit">
+  
+  <div id="start1"><a href="{% url "bithouse:home" %}">Home</a></div>
+  <div id="start2"><a href="{% url "realestate:startre" %}">Strefa klienta</a></div>
+  <div id="start3"><a href="{% url "bithouse:ogloszenia" %}">Ogłoszenia</a></div>
+  <div id="start4">BITHOUSE</div>
+  </div>
+	
+{% endblock %}

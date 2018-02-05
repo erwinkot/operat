@@ -1,0 +1,47 @@
+{% extends "realestate/baserejestr.html" %}
+
+{% block title %}Zestawienie zarejestrowanych nieruchomości{% endblock %}
+
+{% block content %}
+  
+    
+<div id=topik>
+	Zestawienie zarejestrownych nieruchomości
+</div>
+            
+      
+<div id=main>
+	<div id=glowa>
+			<h3>Użytkownik</h3>
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+			<p>e-mail: {{ user.email }}</p>
+			<p>Firma: {{ user.profile.firma }}</p>
+			<p>NIP: {{ user.profile.firma.nip }}</p>
+	</div>
+	<div id=szczegprze>		
+		<table class="cart">
+			<tbody>			
+			
+			{% for n in nieruchomoscs %}
+          
+			<tr>
+            <td><a href="{{ n.get_absolute_url }}">{{ n.id }}</a></td>
+			<td><a href="{{ n.get_absolute_url }}">{{ n.nazwa_opis }}</a></td>
+			<td>{{ n.miejscowosc }}</td>
+			<td>{{ n.kod_pocztowy }}</td>
+			<td>{{ n.ulica }}</td>
+			<td>{{ n.numer }}</td>
+			<td>{{ n.oferent }}</td>
+            <td>{{ n.cena }} zł</td>
+            <td>{{ n.cenamq }} zł </td>
+			</tr>
+			{% endfor %}  
+			
+			</tbody>
+		</table>	
+	<h1>Przejrzyj wystawione</h1>
+	</div>
+ </div>
+  
+  
+{% endblock %}

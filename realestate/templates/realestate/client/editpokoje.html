@@ -1,0 +1,72 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych dla mieszkania{% endblock %}
+
+{% block content %}
+   <h1>Edycja danych szczegółowych dla pokoju</h1>
+  <h4>Numer transakcji {{ nieruchomosc.id }} {{ nieruchomosc.nazwa }} {{ nieruchomosc.ulica }} {{ nieruchomosc.numer }} {{ nieruchomosc.miejscowosc }}</h4>
+  
+
+  <form action="." method="post" enctype="multipart/form-data">
+    <div id=formo1>
+		<p id=nag1>Opis mieszkania</p><br>
+		<div id=f11>Powierzchnia mieszkania {{ pokoje_form.powierz_mieszkania }} m2</div>
+		<div id=f11>Radzaj zabudowy {{ pokoje_form.rodzaj_zabud }}</div>
+		<div id=f11>Rodzaj mieszkania {{ pokoje_form.rodzaj_mieszkania }}</div>
+		<div id=f11>Piętro {{ pokoje_form.pietro }}</div>
+	</div>
+	<div id=formo2>
+		<p id=nag1>Pozostałe informacje</p><br>
+		<div id=f11>Ilość kondygnacji {{ pokoje_form.ilosc_kond }}</div>
+		<div id=f11>Ilość pokoi {{ pokoje_form.ilosc_pokoi }}</div>
+		<div id=f11>Ilość osób {{ pokoje_form.ilosc_osob }}</div>
+		<div id=f11>Czynsz {{ pokoje_form.czynsz }}</div>
+		<div id=f11>Kaucja {{ pokoje_form.kaucja }}</div>
+		<div id=f11>Dostępność {{ pokoje_form.dostepne }}</div>
+	</div>
+	<div id=formo5>
+		<p id=nag1>Media</p><br>
+		<div id=f52>prąd {{ pokoje_form.prad }}</div>
+		<div id=f51>gaz {{ pokoje_form.gaz }}</div>
+		<div id=f51>woda {{ pokoje_form.woda }}</div>
+		<div id=f51>kanalizacja {{ pokoje_form.kanalizacja }}</div>
+		<div id=f51>szambo {{ pokoje_form.szambo }}</div>
+		<div id=f52>oczyszczalnia ścieków {{ pokoje_form.oczyszczalnia }}</div>
+		<div id=f51>telefon {{ pokoje_form.telefon }}</div>
+		<div id=f51>internet {{ pokoje_form.internet }}</div>
+		<div id=f51>telewizja kablowa {{ pokoje_form.tel_kablowa }}</div>
+	</div>
+	<div id=formo6>
+		<p id=nag1>Ogrzewanie</p><br>
+		<div id=f52>miejskie {{ pokoje_form.miejskie }}</div>
+		<div id=f51>gazowe {{ pokoje_form.gazowe }}</div>
+		<div id=f51>olejowe {{ pokoje_form.olejowe }}</div>
+		<div id=f51>elektryczne {{ pokoje_form.elektryczne }}</div>
+		<div id=f51>węglowe {{ pokoje_form.weglowe }}</div>
+		<div id=f52>piece kaflowe {{ pokoje_form.piece_kaflowe }}</div>
+		<div id=f51>komikowe {{ pokoje_form.kominkowe }}</div>
+		<div id=f51>kolektor słoneczny {{ pokoje_form.kolektor_sloneczny }}</div>
+		<div id=f51>pompa ciepła {{ pokoje_form.pompa_ciepla }}</div>
+		<div id=f51>biomasa {{ pokoje_form.biomasa }}</div>
+	</div>
+	
+	<div id=formo8>
+		<p id=nag1>Wyposażenie</p><br>
+		<div id=f52>meble {{ pokoje_form.meble }}</div>
+		<div id=f51>meble częściowo {{ pokoje_form.meble_czesc }}</div>
+		<div id=f51>kuchenka {{ pokoje_form.kuchenka }}</div>
+		<div id=f51>pralka {{ pokoje_form.pralka }}</div>
+		<div id=f51>lodówka {{ pokoje_form.lodowka }}</div>
+		<div id=f52>zmywarka {{ pokoje_form.zmywarka }}</div>
+		<div id=f51>piekarnik {{ pokoje_form.piekarnik }}</div>
+		<div id=f51>mikrofala {{ pokoje_form.mikrofala }}</div>
+		<div id=f51>telewizor {{ pokoje_form.telewizor }}</div>
+	</div>
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+  <div id=inne1>
+  <h1><a href="{% url "realestate:addimageitem" nieruchomosc.id %}">Edytuj zdjęcia</h1>
+  </div>
+  
+{% endblock %}

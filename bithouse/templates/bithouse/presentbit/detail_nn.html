@@ -1,0 +1,74 @@
+{% extends "bithouse/bitbase.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.title }}{% else %}Ogłoszenia detale{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<div id=topik>
+	<div id=topik1>Nr ogłoszenia: {{ nieruchomosc.id }}</div>
+   <div id=topik2>Rodzaj nieruchomości: {{ nieruchomosc.rodzaj_nieruchom }}</div>
+   <div id=topik3>Cena: {{ nieruchomosc.cena }} zł.</div>
+   <div id=topik4>Miejscowość: {{ nieruchomosc.miejscowosc }}</div>
+</div>
+
+<div id=sidebar>
+</div>
+     
+<div id=main>
+	
+	 <img class=det src="{{ nieruchomosc.image.url }}">
+	<div id=prezentacja>
+			{% for imageitem in imageitems %}
+			<img class=prez src="{{ imageitem.image.url }}">
+			{% endfor %}
+	</div>
+		
+	<div id=szczegdet>      
+					
+       	<h3>Nazwa nieruchomości {{ nieruchomosc.nazwa }}</h3>
+		<h3>Ulica {{ nieruchomosc.ulica }}</h3>
+		<h3>Numer {{ nieruchomosc.numer }}</h3>
+		<h3>MIejscowość {{ nieruchomosc.miejscowosc }}</h3>
+		<h2>Cena nieruchomości {{ nieruchomosc.cena }} </h2>
+        <h2>cena za m kwadratowy {{ nieruchomosc.cenamq }} zł </h2>
+			
+		<div id=dzialki>
+			<h1>DZIALKI</h1>
+			<h3>Powierzchnia działki {{ nieruchomosc.dzialki.powi_dzialki }} </h3>
+			<h3>Status działki {{ nieruchomosc.dzialki.status_dzial }} </h3>	
+			<h3>Przeznaczenie działki {{ nieruchomosc.dzialki.przeznaczenie_dzial }} </h3>
+            <h3>Informacje o mpzp {{ nieruchomosc.dzialki.info_mpzp }} </h3>
+		</div>
+			
+		<div id=domy>
+			<h1>DOMY</h1>
+			<h3>Powierzchnia domu {{ nieruchomosc.domys.powierz_domu }}</h3>
+			<h3>Powierzchnia działki {{ nieruchomosc.domys.powierz_dzial }}</h3>
+			<h3>Status działki {{ nieruchomosc.domys.status_dzial }}</h3>
+			<h3>Rodzaj domu {{ nieruchomosc.domys.rodzaj_domu }}</h3>
+			<h3>Ilość kondygnacji {{ nieruchomosc.domys.ilosc_kond }}</h3>
+			<h3>Ilość pokoi {{ nieruchomosc.domys.ilosc_pokoi }}</h3>
+			<h3>Ilość łazienek {{ nieruchomosc.domys.ilosc_lazen }}</h3>
+			<h3>Ilość kuchni {{ nieruchomosc.domys.ilosc_kuchni }}</h3>
+			<h3>Piwnice {{ nieruchomosc.domys.piwnice }}</h3>
+			<h3>Garaż {{ nieruchomosc.domys.garaz }}</h3>
+		</div>
+			
+		<div id=mieszkania>
+			<h1>MIESZKANIA</h1>
+			<h3>Powierzchnia mieszkania {{ nieruchomosc.mieszkanias.powierz_mieszkania }}</h3>
+			<h3>Rodzaj mieszkania {{ nieruchomosc.domys.rodzaj_mieszkania }}</h3>
+		</div>
+	</div>		
+		
+				
+			
+			
+		
+</div>
+  
+{% endblock %}

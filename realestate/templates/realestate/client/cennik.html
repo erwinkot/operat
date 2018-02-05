@@ -1,0 +1,172 @@
+{% extends "realestate/basereal.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Cennik{% endif %}
+{% endblock %}
+
+{% block content %}
+  
+  
+ <div id="header">
+    
+     <span class="logo"><a href="{% url "bithouse:startbit" %}"><div id="logobh">BITHOUSE</div></a></span>
+	 
+    <ul class="menu">
+	<li>
+        <a href="{% url "bithouse:ogloszenia" %}">Ogłoszenia</a>
+      </li>
+      <li>
+        <a href="{% url "realestate:startre" %}">Strefa klienta</a>
+      </li>
+      
+      <li class="selected">
+        <a href="{% url "realestate:cennik" %}">Cennik</a>
+      </li>
+     <li>
+        <a href="{% url "realestate:regulamin" %}">Regulamin</a>
+      </li>
+      <li>
+        <a href="{% url "login" %}">Strona logowania</a>
+      </li>
+	  <li>
+        <a href="{% url "realestate:rejestrnieruchom" %}">Rejestracja nieruchomości</a>
+      </li>
+    </ul>
+</div>
+
+<div id=topikcen>
+<div id=roglo>Ogłoszenia indywidualne</div>
+<div id=ogwy>WYNAJEM</div>
+</div>
+
+<div id=cennikwyind>
+	<div id=c1>
+		<div id=cg1>STARTER</div>
+		<div id=cc1> 19 PLN</div>
+		<div id=ctext1><br><br><br><br>
+		<h1>30 dni</h1>
+		<p>Czas wyświetlania</p>
+		</div>
+	</div>
+	<div id=c2>
+		<div id=cg1>OPTYMALNY</div>
+		<div id=cc1> 39 PLN</div>
+		<div id=ctext2><br><br><br><br>
+		<h1>30 dni</h1>
+		<p>Czas wyświetlania</p><br>
+		<h1>2 razy</h1>
+		<p>Atomatyczne podbicia</p><br>
+		<h1>30 dni</h1>
+		<p>Promocja TOP</p>
+		</div>
+	</div>
+	<div id=c3>
+		<div id=cg1>PREMIUM</div>
+		<div id=cc1> 149 PLN</div>
+		<div id=ctext3><br><br><br><br>
+		<h1>60 dni</h1>
+		<p>Czas wyświetlania</p><br>
+		<h1>5</h1>
+		<p>Atomatyczne podbicia</p><br>
+		<h1>60 dni</h1>
+		<p>Promocja TOP</p><br>
+		<h1>2</h1>
+		<p>Promocja ST</p>
+		</div>
+	</div>
+</div>
+
+<div id=topikcensp>
+<div id=roglo>Ogłoszenia indywidualne</div>
+<div id=ogwy>SPRZEDAŻ</div>
+</div>
+
+<div id=cennikspind>
+	<div id=c1sp>
+		<div id=cgsp1>STARTER</div>
+		<div id=ccsp1> 24 PLN</div>
+		<div id=ctextsp1><br><br><br><br>
+		<h1>30 dni</h1>
+		<p>Czas wyświetlania</p>
+		</div>
+	</div>
+	<div id=c2sp>
+		<div id=cgsp1>OPTYMALNY</div>
+		<div id=ccsp1> 49 PLN</div>
+		<div id=ctextsp2><br><br><br><br>
+		<h1>30 dni</h1>
+		<p>Czas wyświetlania</p><br>
+		<h1>4</h1>
+		<p>Atomatyczne podbicia</p><br>
+		<h1>30 dni</h1>
+		<p>Promocja TOP</p>
+		</div>
+	</div>
+	<div id=c3sp>
+		<div id=cgsp1>PREMIUM</div>
+		<div id=ccsp1> 189 PLN</div>
+		<div id=ctextsp3><br><br><br><br>
+		<h1>60 dni</h1>
+		<p>Czas wyświetlania</p><br>
+		<h1>9</h1>
+		<p>Atomatyczne podbicia</p><br>
+		<h1>60 dni</h1>
+		<p>Promocja TOP</p><br>
+		<h1>2</h1>
+		<p>Promocja SUPER TOP</p>
+		</div>
+	</div>
+</div>
+
+<div id=topikcenbi>
+<div id=roglobi>Pakiety dla biur pośrednictwa</div>
+<div id=ogwybi>OPCJE</div>
+</div>
+
+<div id=cennikbiur>
+	<div id=c1bi>
+		<div id=cgbi1></div>
+		<div id=ccbi1> Ilość ogłoszeń</div>
+		<div id=ctextbi1>
+		<p>0 - 20</p>
+		<p>21 - 50</p>
+		<p>51 - 150</p>
+		<p>151 - 250</p>
+		<p>251 - 500</p>
+		<p>551 - 1000</p>
+		<p>każde następne 500</p>
+		</div>
+		<div id=ccbi5> Podbicie</div>
+		<div id=ctextbi3>1 podbicie</div>
+		<div id=ccbi5> TOP</div>
+		<div id=ctextbi3>15 dni</div>
+		<div id=ccbi5> SUPER TOP</div>
+		<div id=ctextbi3>1 dzień</div>
+		<div id=ccbi5> EXCLUSIVE</div>
+		<div id=ctextbi3></div>
+	</div>
+	<div id=c2bi>
+		<div id=cgbi1></div>
+		<div id=ccbi1> Cena netto</div>
+		<div id=ctextbi2>
+		<p>PLN 89</p>
+		<p>PLN 167</p>
+		<p>PLN 239</p>
+		<p>PLN 299</p>
+		<p>PLN 419</p>
+		<p>PLN 539</p>
+		<p>PLN 119</p>
+		</div>
+		<div id=ccbi5> Cena netto</div>
+		<div id=ctextbi4>PLN 5,99</div>
+		<div id=ccbi5> Cena netto</div>
+		<div id=ctextbi4>PLN 21,00</div>
+		<div id=ccbi5> Cena netto</div>
+		<div id=ctextbi4>44,90</div>
+		<div id=ccbi5> Cena netto</div>
+		<div id=ctextbi4></div>
+	</div>
+</div>
+	
+{% endblock %}

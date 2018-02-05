@@ -1,0 +1,145 @@
+{% extends "bithouse/bitbase.html" %}
+{% load static %}
+
+{% block title %}
+  {% if nieruchomosc %}Działka {{ nieruchomosc.id }}{% else %}Działka{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<div id="header">
+    
+     <span class="logo"><a href="{% url "bithouse:startbit" %}"><div id="logobh">BITHOUSE</div></a></span>
+	 
+    <ul class="menu">
+		
+		<li>
+        <a href="{% url "bithouse:home" %}">HOME</a>
+		</li>
+		<li class="selected">
+        <a href="{% url "bithouse:ogloszenia" %}">OGŁOSZENIA</a>
+		</li>
+		
+		<li>
+        <a href="{% url "realestate:startre" %}">STREFA KLIENTA</a>
+		</li>
+		<li {% if section == "images" %}class="selected"{% endif %}>
+        <a href="#">PRASA</a>
+		</li>
+    </ul>
+</div>
+  
+ 
+  
+  
+<script src="/static/js/detaildzia.js">
+</script>
+
+<div id="topik">
+	<a href="{% url "bithouse:dzialki" %}"><div id=po1>d z i a ł k i </div></a>
+	<a href="{% url "bithouse:dzialki" %}"><div id=po3>s p r z e d a ż</div></a>
+	<div id=po2> {{ nieruchomosc.profil }}&nbsp&nbsp&nbsp&nbsp {{ nieruchomosc.cena }} zł &nbsp&nbsp&nbsp&nbsp{{ nieruchomosc.miejscowosc }}  &nbsp&nbsp&nbsp&nbsp nr ogłoszenia: {{ nieruchomosc.id }}</div>
+</div>
+
+<a href="{% url "bithouse:dzialki" %}"><div id="powrot">
+	p o w r ó t
+</div></a>
+ 
+ 
+<div id=prezentacja>
+	<div id=prezentl>
+		<div id=sldiv><img id="sl" src="/static/img/stl1.png"></div>
+		
+			<img id="photo" src="{{ nieruchomosc.image.url }}">
+			
+		<div id=spdiv><img id="sp" src="/static/img/stp1.png"></div>
+	</div>
+	
+	<div id=prezentr>
+		
+		<p>Sprzedaż</p>
+
+	</div>
+	
+	<div id=slider>
+	{% for imageitem in imageitems %}
+			<img class=prez src="{{ imageitem.image.url }}">
+			{% endfor %}
+	</div>
+</div>
+	
+<div id=sidebar>
+</div>
+     
+<div id=main>
+	
+	 
+		
+	<div id=szczegdet>      
+		<div id=dzia-pre1>
+			<div id=dzia-miejscowosc>{{ nieruchomosc.miejscowosc }}</div>
+			<div id=dzia-nazwa> {{ nieruchomosc.nazwa_opis }}</div>
+			<div id=dzia-cena><p class=pre1>cena zł </p>{{ nieruchomosc.cena }} 
+				<p class=pre1>cena/m2 {{ nieruchomosc.cenamq }} zł </p>
+			</div>
+			<div id=dzia-profil>działka</div>
+			<div id=dzia-adres>	{{ nieruchomosc.ulica }} {{ nieruchomosc.numer }} {{ nieruchomosc.kod_pocztowy }}</div>
+			
+		</div>
+		<div id=dzialki>
+			<table id=dzia-table>
+				<tr><td>typ działki</td><td id=p1>{{ nieruchomosc.dzialki.typ_dzialki }}</td></tr>
+				<tr><td>powierzchnia działki</td><td id=p1>{{ nieruchomosc.dzialki.powi_dzialki }}</td></tr>
+				<tr><td>status</td><td id=p1>{{ nieruchomosc.dzialki.status_dzial }}</td></tr>
+				<tr><td>przeznaczenie</td><td id=p1>{{ nieruchomosc.dzialki.przeznaczenie_dzial }}</td></tr>
+				<tr><td>dojazd</td><td id=p1>{{ nieruchomosc.dzialki.dojazd }}</td></tr>
+			</table>
+			
+			<div id=dzia-mpzp><p class=mpzp>Informacje o mpzp</p><br>
+			{{ nieruchomosc.dzialki.info_mpzp }}
+			</div>
+			
+			<div id=dzia-media>Media
+				<ul>
+					<li id=dommedia0>{{ nieruchomosc.dzialki.prad }}</li>
+					<li id=dommedia1>{{ nieruchomosc.dzialki.gaz }}</li>
+					<li id=dommedia2>{{ nieruchomosc.dzialki.woda }}</li>
+					<li id=dommedia3>{{ nieruchomosc.dzialki.kanalizacja }}</li>
+					<li id=dommedia4>{{ nieruchomosc.dzialki.szambo }}</li>
+					<li id=dommedia5>{{ nieruchomosc.dzialki.oczyszczalnia }}</li>
+					<li id=dommedia6>{{ nieruchomosc.dzialki.telefon }}</li>
+				</ul>
+			</div>
+			
+			
+			<div id=dzia-otocz>Otoczenie
+				<ul>
+					<li id=domotocz0>{{ nieruchomosc.dzialki.las }}</li>
+					<li id=domotocz1>{{ nieruchomosc.dzialki.gory }}</li>
+					<li id=domotocz2>{{ nieruchomosc.dzialki.jezioro }}</li>
+					<li id=domotocz3>{{ nieruchomosc.dzialki.morze }}</li>
+					<li id=domotocz4>{{ nieruchomosc.dzialki.teren_otwarty }}</li>
+				</ul>
+			</div>
+		
+		</div>
+		
+		<div id=szczegdet1>	
+			<p class=pre1>Autorski opis nieruchomości</p>
+			<div id=dom-info>
+				{{ nieruchomosc.opis_nieruchomosci }}
+			</div>
+		</div>
+					
+	</div>
+	
+			
+		
+			
+</div>		
+		
+
+
+  
+{% endblock %}

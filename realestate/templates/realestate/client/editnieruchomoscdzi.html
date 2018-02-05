@@ -1,0 +1,49 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych nieruchomości{% endblock %}
+
+{% block content %}
+  <h1>Edycja danych dla nieruchomości. Nr transakcji: {{ nieruchomosc.id }}</h1>
+  <p>Za pomocą poniższego formularza możesz edytować dane   dla nieruchomości</p>
+  <form action="." method="post" enctype="multipart/form-data">
+    <div id=formo1>
+		<p id=nag1>Dane podstawowe nieruchomości</p><br>
+		<div id=f11>Opisowa nazwa nieruchomości {{ nieruchomosc_form.nazwa_opis }} {{ nieruchomosc_form.nazwa_opis.errors }}</div>
+		<div id=f11>Cena {{ nieruchomosc_form.cena }} zł {{ nieruchomosc_form.cena.errors }} </div>
+		<div id=f11>Miejscowość {{ nieruchomosc_form.miejscowosc }} {{ nieruchomosc_form.miejscowosc.errors }}</div>
+		<div id=f11>Ulica {{ nieruchomosc_form.ulica }} {{ nieruchomosc_form.ulica.errors }}</div>
+		<div id=f11>Numer {{ nieruchomosc_form.numer }} {{ nieruchomosc_form.numer.errors }}</div>
+		<div id=f11>Kod pocztowy {{ nieruchomosc_form.kod_pocztowy }} {{ nieruchomosc_form.kod_pocztowy.errors }}</div>
+		<div id=f11>Obrazek główny{{ nieruchomosc_form.image }} {{ nieruchomosc_form.image.errors }}</div>
+		<div id=f11>Cena m2 {{ nieruchomosc_form.cenamq }} zł {{ nieruchomosc_form.cenamq.errors }}</div>
+		<div id=f16>Szerszy (autorski) opis nieruchomości {{ nieruchomosc_form.opis_nieruchomosci }}</div>
+	</div>
+	<div id=formo2>
+		<p id=nag1>Dane techniczne</p><br>
+		<div id=f11>Rynek nieruchomości {{ nieruchomosc_form.rynek }}</div>
+		<div id=f11>Sprzedajesz czy wynajmujesz {{ nieruchomosc_form.rodzaj_transakcji }}</div>
+		<div id=f11>Rodzaj oferującego {{ nieruchomosc_form.oferent }}</div>
+		<div id=f11>Klient docelowy {{ nieruchomosc_form.klient_docelowy }}</div>
+		<div id=f11>Rodzaj oferty {{ nieruchomosc_form.rodzaj_oferty }}</div>
+	</div>
+	<div id=formo3>
+		<p id=nag1>Linki</p><br>
+		<div id=f11>Link {{ nieruchomosc_form.link1 }}</div>
+		<div id=f11>Link {{ nieruchomosc_form.link2 }}</div>
+		<div id=f11>Link {{ nieruchomosc_form.link3 }}</div>
+		<div id=f11>Link {{ nieruchomosc_form.link4 }}</div>
+	</div>
+	<div id=formo4>
+		<p id=nag1>Dane ogłoszeniodawcy</p><br>
+		<div id=f11>Status ogłszenia {{ nieruchomosc_form.status }}</div>
+		<div id=f11>Telefon {{ nieruchomosc_form.telefon }}</div>
+		<div id=f11>E-mail {{ nieruchomosc_form.email }}</div>
+		<div id=f11>Data dodania {{ nieruchomosc_form.publish }}</div>
+	</div>
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+  <div id=inne1>
+  <h1><a href="{% url "realestate:addimageitem" nieruchomosc.id %}">Edytuj zdjęcia</h1>
+  </div>
+{% endblock %}

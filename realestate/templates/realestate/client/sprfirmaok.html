@@ -1,0 +1,21 @@
+{% extends "baseaccount.html" %}
+
+{% block title %}Edycja danych firmowych{% endblock %}
+
+{% block content %}
+  
+  
+  <h3>Czy to firma, którą reprezentujesz?<h3><br>
+ 
+ {% for p in profilefirm %}
+	
+    <h1>{{ p.nazwa }} </h1>
+	<h2>{{ p.miejscowosc }}</h2>
+	<h2>NIP: {{ p.nip }}</h2>
+  	{% endfor %}
+	<h2> Czy chcesz dodać tę firmę {{ nip }} do swoich danych? <a href="{% url "realestate:firmadopis" %}">TAK </a><a href="{% url "edit" %}">NIE</a></h2>
+  
+  
+  
+  
+{% endblock %}

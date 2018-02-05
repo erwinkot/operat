@@ -1,0 +1,102 @@
+{% extends "bithouse/bitbase.html" %}
+{% load static %}
+
+{% block title %}
+  Ogłoszenia działki
+{% endblock %}
+
+{% block content %}
+  
+  <div id="header">
+    
+     <span class="logo"><a href="{% url "bithouse:startbit" %}"><div id="logobh">BITHOUSE</div></a></span>
+	 
+    <ul class="menu">
+		
+		<li>
+        <a href="{% url "bithouse:home" %}">HOME</a>
+		</li>
+		<li class="selected">
+        <a href="{% url "bithouse:ogloszenia" %}">OGŁOSZENIA</a>
+		</li>
+		
+		<li>
+        <a href="{% url "realestate:startre" %}">STREFA KLIENTA</a>
+		</li>
+		<li {% if section == "images" %}class="selected"{% endif %}>
+        <a href="#">PRASA</a>
+		</li>
+    </ul>
+  </div>
+  
+  <div id="glowa">
+  <div id=filtry>
+	&nbsp&nbspFILTRY
+			<form action="." method="post">
+			<br>
+				<div id=f2><p><input type="submit" value="Filtruj"></p></div><a href="{% url "bithouse:komercyjne" %}"><div id=f1>CF</div></a><br><br><br><br>
+				<div id=f3>
+				<ul>
+				<li>{{ filtrmiejsc_form.miejscowosc.label }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				{{ filtrmiejsc_form.miejscowosc }}</li>
+				<li>{{ filtrrynk_form.rynek.label }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				{{ filtrrynk_form.rynek }}</li>
+				<li>{{ filtroferent_form.oferent.label }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				{{ filtroferent_form.oferent }}</li>
+				</ul>
+				</div>
+		{% csrf_token %}
+    
+	</form>
+	</div>
+   	<div id=glowa1>działki
+	<a href="{% url "bithouse:dzialki" %}"><p>sprzedaż</p></a><a href="{% url "bithouse:dzialki_wy" %}"><p>wynajem</p></a></div>
+	<div id=glowa2>domy
+	<a href="{% url "bithouse:domy" %}"><p>sprzedaż</p></a><a href="{% url "bithouse:domy_wy" %}"><p>wynajem</p></a></div>
+	<div id=glowa3>mieszkania
+	<a href="{% url "bithouse:mieszkania" %}"><p>sprzedaż</p></a><a href="{% url "bithouse:mieszkania_wy" %}"><p>wynajem</p></a></div>
+	<div id=glowa4>komercyjne
+	<a href="{% url "bithouse:komercyjne" %}"><p>sprzedaż</p></a><a href="{% url "bithouse:komercyjne_wy" %}"><p>wynajem</p></a></div>
+	<div id=glowa5>pozostałe
+	<a href="{% url "bithouse:deweloper" %}"><p>deweloper</p></a><a href="{% url "bithouse:pokoje" %}"><p>pokoje</p></a><a href="{% url "bithouse:garage" %}"><p>garaże</p></a></div>
+  </div>
+  
+  <div id="sidebar">
+    <h3>Okno na świat</h3>
+    </div>
+	
+  <div id="main" >
+  
+    
+			{% for n in nieruchomoscs %}
+    <div id=itemkom>
+		<div id=firstl>
+			 <a href="bit{{ n.get_absolute_url }}"><img class=ogl src="{{ n.image.url }}"> </a>        
+        </div> 
+		<div id=menio>
+			<div id=cobox><h4>{{ n.komercyjnes.rodzaj_nieruchom }} na sprzedaż</h4></div>
+			<div id=cenabox> {{ n.cena }} zł</div>
+		
+			<h1><a href="bit{{ n.get_absolute_url }}">{{ n.nazwa_opis }}</a></h1>
+		
+			<div id=secondl>    
+				
+				<h2> {{ n.miejscowosc }}, ulica {{ n.ulica }} {{ n.numer }}</h2>
+				<h3>{{ n.komercyjnes.powierz_nieruchomosci }} m3, działka {{ n.komercyjnes.powierz_dzialki }} m2,
+				
+				
+            </div>
+			<div id=thirtl>
+			
+				<h3>Cena za 1m2 {{ n.cenamq }} zł </h3>
+				<h3>Numer oferty: {{ n.id }}</h3>
+				<p>Oferujący: {{ n.oferent }}</p>
+            </div> 
+		</div>
+	</div> 
+			{% endfor %}  
+ 
+</div>
+	
+	
+{% endblock %}

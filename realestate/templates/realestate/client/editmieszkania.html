@@ -1,0 +1,94 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych dla mieszkania{% endblock %}
+
+{% block content %}
+   <h1>Edycja danych szczegółowych dla mieszkania</h1>
+  <h4>Numer transakcji {{ nieruchomosc.id }} {{ nieruchomosc.nazwa }} {{ nieruchomosc.ulica }} {{ nieruchomosc.numer }} {{ nieruchomosc.miejscowosc }}</h4>
+  
+
+  <form action="." method="post" enctype="multipart/form-data">
+    <div id=formo1>
+		<p id=nag1>Opis domu</p><br>
+		<div id=f11>Powierzchnia mieszkania {{ mieszkania_form.powierz_mieszkania }} m2</div>
+		<div id=f11>Radzaj zabudowy {{ mieszkania_form.rodzaj_zabud }}</div>
+		<div id=f11>Rodzaj mieszkania {{ mieszkania_form.rodzaj_mieszkania }}</div>
+		<div id=f11>Piętro {{ mieszkania_form.pietro }}</div>
+		<div id=f11>Rok budowy {{ mieszkania_form.rok_budowy }}</div>
+		<div id=f11>Rodzaj materiału {{ mieszkania_form.rodz_materialu }}</div>
+		<div id=f11>Rodzaj okien {{ mieszkania_form.okna }}</div>
+		<div id=f11>Stan wykończenia {{ mieszkania_form.stan_wykonczenia }}</div>
+	</div>
+	<div id=formo2>
+		<p id=nag1>Pozostałe informacje</p><br>
+		<div id=f11>Ilość kondygnacji {{ mieszkania_form.ilosc_kond }}</div>
+		<div id=f11>Ilość pokoi {{ mieszkania_form.ilosc_pokoi }}</div>
+		<div id=f11>Ilość łazienek {{ mieszkania_form.ilosc_lazen }}</div>
+		<div id=f11>Ilość kuchni {{ mieszkania_form.ilosc_kuchni }}</div>
+		<div id=f11>Piwnica {{ mieszkania_form.piwnica }}</div>
+		<div id=f11>Garaż {{ mieszkania_form.garaz }}</div>
+		<div id=f11>Winda {{ mieszkania_form.winda }}</div>
+		<div id=f11>Parking {{ mieszkania_form.parking }}</div>
+		<div id=f11>Klimatyzacja {{ mieszkania_form.klimatyzacja }}</div>
+		<div id=f11>Balkon {{ mieszkania_form.balkon }}</div>
+		<div id=f11>Taras {{ mieszkania_form.taras }}</div>
+		<div id=f11>Ogródek {{ mieszkania_form.ogrodek }}</div>
+		<div id=f11>Dojazd {{ mieszkania_form.dojazd }}</div>
+		<div id=f11>Czynsz {{ mieszkania_form.czynsz }}</div>
+		<div id=f11>Kaucja {{ mieszkania_form.kaucja }}</div>
+		<div id=f11>Dostępność {{ mieszkania_form.dostepne }}</div>
+	</div>
+	<div id=formo5>
+		<p id=nag1>Media</p><br>
+		<div id=f52>prąd {{ mieszkania_form.prad }}</div>
+		<div id=f51>gaz {{ mieszkania_form.gaz }}</div>
+		<div id=f51>woda {{ mieszkania_form.woda }}</div>
+		<div id=f51>kanalizacja {{ mieszkania_form.kanalizacja }}</div>
+		<div id=f51>szambo {{ mieszkania_form.szambo }}</div>
+		<div id=f52>oczyszczalnia ścieków {{ mieszkania_form.oczyszczalnia }}</div>
+		<div id=f51>telefon {{ mieszkania_form.telefon }}</div>
+		<div id=f51>internet {{ mieszkania_form.internet }}</div>
+		<div id=f51>telewizja kablowa {{ mieszkania_form.tel_kablowa }}</div>
+	</div>
+	<div id=formo6>
+		<p id=nag1>Ogrzewanie</p><br>
+		<div id=f52>miejskie {{ mieszkania_form.miejskie }}</div>
+		<div id=f51>gazowe {{ mieszkania_form.gazowe }}</div>
+		<div id=f51>olejowe {{ mieszkania_form.olejowe }}</div>
+		<div id=f51>elektryczne {{ mieszkania_form.elektryczne }}</div>
+		<div id=f51>węglowe {{ mieszkania_form.weglowe }}</div>
+		<div id=f52>piece kaflowe {{ mieszkania_form.piece_kaflowe }}</div>
+		<div id=f51>komikowe {{ mieszkania_form.kominkowe }}</div>
+		<div id=f51>kolektor słoneczny {{ mieszkania_form.kolektor_sloneczny }}</div>
+		<div id=f51>pompa ciepła {{ mieszkania_form.pompa_ciepla }}</div>
+		<div id=f51>biomasa {{ mieszkania_form.biomasa }}</div>
+	</div>
+	<div id=formo7>
+		<p id=nag1>Zabezpieczenie</p><br>
+		<div id=f52>teren zamknięty {{ mieszkania_form.teren_zamkniety }}</div>
+		<div id=f51>monitoring {{ mieszkania_form.monitoring }}</div>
+		<div id=f51>alarm {{ mieszkania_form.alarm }}</div>
+		<div id=f51>drzwi anty-włamaniowe {{ mieszkania_form.drzwi_anty }}</div>
+		<div id=f51>rolety {{ mieszkania_form.rolety }}</div>
+		<div id=f52>domofon/wideofon {{ mieszkania_form.domofon }}</div>
+	</div>
+	<div id=formo8>
+		<p id=nag1>Wyposażenie</p><br>
+		<div id=f52>meble {{ mieszkania_form.meble }}</div>
+		<div id=f51>meble częściowo {{ mieszkania_form.meble_czesc }}</div>
+		<div id=f51>kuchenka {{ mieszkania_form.kuchenka }}</div>
+		<div id=f51>pralka {{ mieszkania_form.pralka }}</div>
+		<div id=f51>lodówka {{ mieszkania_form.lodowka }}</div>
+		<div id=f52>zmywarka {{ mieszkania_form.zmywarka }}</div>
+		<div id=f51>piekarnik {{ mieszkania_form.piekarnik }}</div>
+		<div id=f51>mikrofala {{ mieszkania_form.mikrofala }}</div>
+		<div id=f51>telewizor {{ mieszkania_form.telewizor }}</div>
+	</div>
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+  <div id=inne1>
+  <h1><a href="{% url "realestate:addimageitem" nieruchomosc.id %}">Edytuj zdjęcia</h1>
+  </div>
+  
+{% endblock %}

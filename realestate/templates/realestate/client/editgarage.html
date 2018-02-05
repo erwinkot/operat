@@ -1,0 +1,40 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych dla mieszkania{% endblock %}
+
+{% block content %}
+   <h1>Edycja danych szczegółowych dla garażu</h1>
+  <h4>Numer transakcji {{ nieruchomosc.id }} {{ nieruchomosc.nazwa }} {{ nieruchomosc.ulica }} {{ nieruchomosc.numer }} {{ nieruchomosc.miejscowosc }}</h4>
+  
+
+  <form action="." method="post" enctype="multipart/form-data">
+    <div id=formo1>
+		<p id=nag1>Opis garażu</p><br>
+		<div id=f11>Powierzchnia garażu {{ garage_form.powierz_garage }} m2</div>
+		<div id=f11>Radzaj zabudowy {{ garage_form.rodzaj_zabud }}</div>
+	</div>
+	<div id=formo2>
+		<p id=nag1>Pozostałe informacje</p><br>
+		<div id=f11>Konstrukcja garażu {{ garage_form.konstr_garage }}</div>
+		<div id=f11>Czynsz {{ garage_form.czynsz }}</div>
+		<div id=f11>Kaucja {{ garage_form.kaucja }}</div>
+		<div id=f11>Dostępność {{ garage_form.dostepne }}</div>
+	</div>
+	<div id=formo5>
+		<p id=nag1>Media</p><br>
+		<div id=f52>ogrzewanie {{ garage_form.ogrzewanie }}</div>
+		<div id=f51>oświetlenie {{ garage_form.oswietlenie }}</div>
+		<div id=f51>woda {{ garage_form.woda }}</div>
+		<div id=f51>kanalizacja {{ garage_form.kanalizacja }}</div>
+		<div id=f51>szambo {{ garage_form.szambo }}</div>
+	</div>
+	
+	
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+  <div id=inne1>
+  <h1><a href="{% url "realestate:addimageitem" nieruchomosc.id %}">Edytuj zdjęcia</h1>
+  </div>
+  
+{% endblock %}

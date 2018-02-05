@@ -1,0 +1,12 @@
+{% extends "baseaccount.html" %}
+
+{% block title %}Panel główny{% endblock %}
+
+{% block content %}
+  <h1>Panel główny</h1>
+  
+  <h2>Witaj w panelu głównym. Możesz edytować profil lub <a href="{% url "password_change" %}">zmienić hasło</a>.</h2>
+	<h2> Jeżeli chcesz edytować konto jako osoba fizyczna, kliknij <a href="{% url "editfiz" %}">TUTAJ.</a></h2>
+	<h2> Jeżeli chcesz edytować konto reprezentant firmy, kliknij: <a href="{% url "edit" %}">FIRMA.</a>
+  
+  {% endblock %}

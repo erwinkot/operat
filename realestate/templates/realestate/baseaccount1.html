@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link href="{% static "css/baseaccount1.css" %}" rel="stylesheet">
+</head>
+<body>
+  <div id="header">
+   <span class="logo"><a href="{% url "bithouse:startbit" %}"><div id="logobh">BITHOUSE</div></a></span>
+  {% if request.user.is_authenticated %}
+    <ul class="menu">
+      <li {% if section == "mainboard" %}class="selected"{% endif %}>
+        <a href="{% url "mainboard" %}">Administracja kontem</a>
+      </li>
+      <li {% if section == "images" %}class="selected"{% endif %}>
+        <a href="{% url "realestate:rejestrnieruchom" %}">Rejestracja nieruchomości</a>
+      </li>
+      <li {% if section == "people" %}class="selected"{% endif %}>
+        <a href="#">Przegląd</a>
+      </li>
+    </ul>
+  {% endif %}
+	<span class="user">
+    {% if request.user.is_authenticated %}
+      Witaj, {{ request.user.first_name }}!
+      <a href="{% url "logout" %}">Wyloguj</a>
+    {% else %}
+      <a href="{% url "login" %}">Zaloguj</a>
+    {% endif %}
+  </span>
+  
+  </div>
+
+  <div id="content">
+	<div id="poleform">
+    {% block content %}
+    {% endblock %}
+	</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "realestate/baserejestr.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Realestate{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div id=topik>
+	Rejestracja nieruchomości
+</div>
+ 
+    
+ <div id=main>
+	<div id=kw1>
+	<div id=pros1></div><a href="{% url "realestate:addnieruchomoscdzi" %}"><div id=dzialki>Działki&nbsp&nbsp&nbsp</div></a><a href="{% url "realestate:addnieruchomoscdom" %}"><div id=domy>Domy&nbsp&nbsp&nbsp</div></a><a href="{% url "realestate:addnieruchomoscgar" %}"><div id=garage>Garaże&nbsp&nbsp&nbsp</div></a><div id=prost1></div><div id=prost7></div>
+	</div>
+	<div id=kw2>
+	<div id=pros3></div><a href="{% url "realestate:addnieruchomoscmie" %}"><div id=mieszkania>Mieszkania&nbsp&nbsp&nbsp</div></a><a href="{% url "realestate:addnieruchomoscpok" %}"><div id=pokoje>Pokoje&nbsp&nbsp&nbsp</div></a><div id=prost2></div><div id=prost7></div>
+	</div>
+	<div id=kw3>
+	<div id=pros2></div><a href="{% url "realestate:addnieruchomosckom" %}"><div id=komercyjne>Komercyjne&nbsp&nbsp&nbsp</div></a><div id=prost3></div><div id=prost7></div>
+	</div>
+	<div id=kw4>
+	</div>
+	
+    
+	
+	
+</div>
+{% endblock %}

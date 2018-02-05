@@ -1,0 +1,14 @@
+{% extends "baserejestr.html" %}
+
+{% block title %}Edycja danych firmowych{% endblock %}
+
+{% block content %}
+  <h1>Edycja danych dla działki</h1><br>
+  
+  <p>Za pomocą poniższego formularza możesz edytować dane firmowe dla wystawienia faktury</p>
+  <form action="." method="post" enctype="multipart/form-data">
+    {{ profilefirm_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+{% endblock %}

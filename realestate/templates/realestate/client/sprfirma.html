@@ -1,0 +1,28 @@
+{% extends "baseaccount.html" %}
+
+{% block title %}Edycja danych firmowych{% endblock %}
+
+{% block content %}
+  
+  
+  <h3>Sprawdź, czy twoja firma jest bazie<h3>
+ 
+  
+	<form action="." method="post">
+    {{ spr_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Sprwdź"></p>
+  </form>
+   <h2>Dane firmy</h2>
+  
+          
+			
+            <p>{{ profilefirm.nazwa }}{{ profilefirm.miejscowosc }}{{ profilefirm.nip }}</p><br>
+			<p>{{ komenda }}</p>
+			</a> <a href="{% url "realestate:new_firm" %}">EDYTUJ DANE FIRMOWE</a></h1>
+			
+  
+  
+  
+  
+{% endblock %}

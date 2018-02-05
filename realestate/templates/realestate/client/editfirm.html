@@ -1,0 +1,15 @@
+{% extends "baseaccount.html" %}
+
+{% block title %}Edycja danych firmowych{% endblock %}
+
+{% block content %}
+  <h1>Edycja danych firmowych</h1>
+  <h2><a href="#">Link Potencjalny</a></h2>
+  
+  <p>Za pomocą poniższego formularza możesz edytować dane firmowe dla wystawienia faktury</p>
+  <form action="." method="post" enctype="multipart/form-data">
+    {{ profilefirm_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+  {% endblock %}

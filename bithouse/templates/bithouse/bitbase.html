@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}Bithouse{% endblock %}</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&amp;subset=latin-ext">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,100,300,500,700,900&amp;subset=latin-ext">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  
+  <link href="{% static "css/bitbase.css" %}" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+</head>
+<body>
+  
+  
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+  
+
+</body>
+</html>

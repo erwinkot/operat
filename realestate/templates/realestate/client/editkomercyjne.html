@@ -1,0 +1,91 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych dla komercyjnych{% endblock %}
+
+{% block content %}
+  <h1>Edycja danych szczegółowych dla nieruchomości komercyjnych</h1>
+  <h4>Numer transakcji {{ nieruchomosc.id }} {{ nieruchomosc.nazwa }} {{ nieruchomosc.ulica }} {{ nieruchomosc.numer }} {{ nieruchomosc.miejscowosc }}</h4>
+  
+
+  <form action="." method="post" enctype="multipart/form-data">
+    <div id=formo1>
+		<p id=nag1>Informacje ogólne</p><br>
+		<div id=f11>Powierzchnia nieruchomości {{ komercyjne_form.powierz_nieruchomosci }} m2</div>
+		<div id=f11>Powierzchnia działki {{ komercyjne_form.powierz_dzialki }} m2</div>
+		<div id=f11>Status działki {{ komercyjne_form.status_dzial }}</div>
+		<div id=f11>Rodzaj nieruchomości {{ komercyjne_form.rodzaj_nieruchom }}</div>
+		<div id=f11>Częśc czy całość? {{ komercyjne_form.pozycja_nieruchom }}</div>
+		<div id=f11>Rok budowy {{ komercyjne_form.rok_budowy }}</div>
+		<div id=f11>Dojazd {{ komercyjne_form.dojazd }}</div>
+		<div id=f16>Informacje o planie zagospodarowania {{ komercyjne_form.info_mpzp }}</div>
+	</div>
+	<div id=formo2>
+		<p id=nag1>Szczegóły konstrukcyjne</p><br>
+		<div id=f11>Rodzaj konstrukcji/materiału {{ komercyjne_form.rodzaj_materialu }}</div>
+		<div id=f11>Rodzaj dachu {{ komercyjne_form.dach }}</div>
+		<div id=f11>Pokrycie dachu {{ komercyjne_form.pokrycie_dach }}</div>
+		<div id=f11>Stan wykończenia {{ komercyjne_form.stan_wykonczenia }}</div>
+		<div id=f11>Rodzaj okien {{ komercyjne_form.okna }}</div>
+		<div id=f11>Rodzaj posadzki {{ komercyjne_form.posadzka }}</div>
+		<div id=f11>Rodzaj parkingu {{ komercyjne_form.parking }}</div>
+		<div id=f11>Ilość kondygnacji {{ komercyjne_form.ilosc_kond }}</div>
+		<div id=f11>Ilość pokoi {{ komercyjne_form.ilosc_pokoi }}</div>
+		<div id=f11>Ogrzewanie {{ komercyjne_form.ogrzewanie }}</div>
+		<div id=f11>Klimatyzacja {{ komercyjne_form.klimatyzacja }}</div>
+		<div id=f11>Ogrodzenie {{ komercyjne_form.ogrodzenie }}</div>
+	</div>
+	
+	
+	<div id=formo5>
+		<p id=nag1>Media</p><br>
+		<div id=f52>prąd {{ komercyjne_form.prad }}</div>
+		<div id=f51>gaz {{ komercyjne_form.gaz }}</div>
+		<div id=f51>woda {{ komercyjne_form.woda }}</div>
+		<div id=f51>kanalizacja {{ komercyjne_form.kanalizacja }}</div>
+		<div id=f51>szambo {{ komercyjne_form.szambo }}</div>
+		<div id=f52>oczyszczalnia ścieków {{ komercyjne_form.oczyszczalnia }}</div>
+		<div id=f51>telefon {{ komercyjne_form.telefon }}</div>
+		<div id=f51>internet {{ komercyjne_form.internet }}</div>
+		<div id=f51>telewizja kablowa {{ komercyjne_form.tel_kablowa }}</div>
+	</div>
+	
+	<div id=formo7>
+		<p id=nag1>Zabezpieczenie</p><br>
+		<div id=f52>monitoring {{ komercyjne_form.monitoring }}</div>
+	</div>
+	<div id=formo8>
+		<p id=nag1>Otoczenie</p><br>
+		<div id=f52>Teren przemysłowy {{ komercyjne_form.teren_przemyslowy }}</div>
+		<div id=f51>Teren zdrojowy {{ komercyjne_form.teren_zdrojowy }}</div>
+		<div id=f51>Teren turystyczny {{ komercyjne_form.teren_turystyczny }}</div>
+		<div id=f51>Las {{ komercyjne_form.las }}</div>
+		<div id=f51>Góry {{ komercyjne_form.gory }}</div>
+		<div id=f52>Jezioro {{ komercyjne_form.jezioro }}</div>
+		<div id=f51>Morze {{ komercyjne_form.morze }}</div>
+		<div id=f51>Teren otwarty {{ komercyjne_form.teren_otwarty }}</div>
+	</div>
+	<div id=formo10>
+		<p id=nag1>Dla wynajmu</p><br>
+		<div id=f12>Umiejscowienie lokalu {{ komercyjne_form.polozenie_lokalu }}</div>
+		<div id=f11>Czynsz {{ komercyjne_form.czynsz }}</div>
+		<div id=f11>Kaucja {{ komercyjne_form.kaucja }}</div>
+		<div id=f11>Dostępne od: {{ komercyjne_form.dostepne }}</div>
+	</div>
+	
+	<div id=formo9>
+		<p id=nag1>Rodzaj lokalu</p><br>
+		<div id=f52>biurowy lokalu {{ komercyjne_form.biurowy }}</div>
+		<div id=f51>handlowy {{ komercyjne_form.handlowy }}</div>
+		<div id=f51>usługowy {{ komercyjne_form.uslugowy }}</div>
+		<div id=f51>gastronomiczny od: {{ komercyjne_form.gastronomiczny }}</div>
+		<div id=f51>hotelowy {{ komercyjne_form.hotelowy }}</div>
+		<div id=f52>magazynowy {{ komercyjne_form.magazynowy }}</div>
+		<div id=f51>przemysłowy {{ komercyjne_form.przemyslowy }}</div>
+	</div>
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+  <div id=inne1>
+  <h1><a href="{% url "realestate:addimageitem" nieruchomosc.id %}">Edytuj zdjęcia</h1>
+  </div>
+{% endblock %}

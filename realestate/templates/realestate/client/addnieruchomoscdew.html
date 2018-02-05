@@ -1,0 +1,15 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych nieruchomości{% endblock %}
+
+{% block content %}
+  <h1>Edycja danych dla nieruchomości</h1>
+  <p>Za pomocą poniższego formularza możesz edytować dane   dla nieruchomości</p>
+  <form action="." method="post" enctype="multipart/form-data">
+    {{ nieruchomosc_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+  
+  <h1><a href="{% url "realestate:probino" %}">DALEJ</a></h1>
+{% endblock %}

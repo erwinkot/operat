@@ -1,0 +1,163 @@
+{% extends "bithouse/starter.html" %}
+{% load static %}
+
+{% block title %}
+  Ogłoszenia
+{% endblock %}
+
+{% block content %}
+<script src="/static/js/ruchan.js"></script>
+
+  
+  <div id="glowa">
+   	<div id="navioutl"></div>
+	<div id="navimen">
+	<ul>
+		<li><a href="{% url "bithouse:dzialki" %}"><div id=menuwej1>
+				<h2>Działki </h2>
+				<h4>Rozległe i big, niezwykle niezwykłe</h4>
+				</div></a></li>
+		<li><a href="{% url "bithouse:domy" %}"><div id=menuwej2>
+				<h2>Domy</h2>
+				<h4>Wspaniałe, powabne i pełne</h4>
+				</div></a></li>
+		<li><a href="{% url "bithouse:mieszkania" %}"><div id=menuwej3>
+				<h2>Mieszkania</h2>
+				<h4>Odjechane i exkluzywnie ponętne</h4>
+				</div></a></li>
+		<li><a href="{% url "bithouse:komercyjne" %}"><div id=menuwej4>
+				<h2>Komercja</h2>
+				<h4>Bogate i atrakcyjne, industrialne</h4>
+				</div></a></li>
+		<li><a href="{% url "bithouse:deweloper" %}"><div id=menuwej5>
+				<h2>Dewelop</h2>
+				<h4>Nie z tej ziemi i nie z tej planety</h4>
+				</div></a></li>
+	</ul>
+	</div>
+	<div id="navi">
+						
+				<ul id=ulica1>
+					<a href="{% url "bithouse:dzialki" %}"><li class=obki>
+					<div class=gidz><div id=g1dzi>Kurwencja</div></div>
+					</li></a>
+					<li class=obki>
+					<div class=gidz><div id=g2dzi></div></div>
+					</li>
+					<li class=obki>
+					<div class=gidz><div id=g3dzi></div></div>
+					</li>
+					<li class=obki>
+					<div class=gidz><div id=g4dzi></div></div>
+					</li>
+					<li class=obki>
+					<div class=gidz><div id=g5dzi></div></div>
+					</li>
+					<li class=obki>
+					<div class=gidz><div id=g6dzi></div></div>
+					</li>
+					<li class=obki>
+					<div class=gidz><div id=g7dzi></div></div>
+					</li>
+					<li class=obki>
+					<div class=gidz><div id=g8dzi></div></div>
+					</li>
+					<li class=obki>
+					<div class=gidz><div id=g9dzi></div></div>
+					</li>
+				</ul>
+							
+				<ul id=ulica2>
+					<li class=obki>
+					<div class=gido><div id=g1dom>Kurwencja</div></div>
+					</li>
+					<li class=obki>
+					<div class=gido><div id=g2dom></div></div>
+					</li>
+					<li class=obki>
+					<div class=gido><div id=g3dom></div></div>
+					</li>
+					<li class=obki>
+					<div class=gido><div id=g4dom></div></div>
+					</li>
+					<li class=obki>
+					<div class=gido><div id=g5dom></div></div>
+					</li>
+					<li class=obki>
+					<div class=gido><div id=g6dom></div></div>
+					</li>					
+				</ul>
+							
+				<ul id=ulica3>
+					<li class=obki>
+					<div class=gimi><div id=g1mie>Kurwencja</div></div>
+					</li>
+					<li class=obki>
+					<div class=gimi><div id=g2mie></div></div>
+					</li>
+					<li class=obki>
+					<div class=gimi><div id=g3mie></div></div>
+					</li>
+					<li class=obki>
+					<div class=gimi><div id=g4mie></div></div>
+					</li>
+					<li class=obki>
+					<div class=gimi><div id=g5mie></div></div>
+					</li>
+					<li class=obki>
+					<div class=gimi><div id=g6mie></div></div>
+					</li>
+				</ul>
+			
+				
+				<ul id=ulica4>
+					<li class=obki>
+					<div class=giko><div id=g1kom>Kurwencja</div></div>
+					</li>
+					<li class=obki>
+					<div class=giko><div id=g2kom></div></div>
+					</li>
+					<li class=obki>
+					<div class=giko><div id=g3kom></div></div>
+					</li>
+					<li class=obki>
+					<div class=giko><div id=g4kom></div></div>
+					</li>
+					<li class=obki>
+					<div class=giko><div id=g5kom></div></div>
+					</li>
+					<li class=obki>
+					<div class=giko><div id=g6kom></div></div>
+					</li>
+				</ul>
+			
+				
+				<ul id=ulica5>
+					<li class=obki>
+					<div class=gide><div id=g1dew>Kurwencja</div></div>
+					</li>
+					<li class=obki>
+					<div class=gide><div id=g2dew></div></div>
+					</li>
+					<li class=obki>
+					<div class=gide><div id=g3dew></div></div>
+					</li>
+					<li class=obki>
+					<div class=gide><div id=g4dew></div></div>
+					</li>
+					<li class=obki>
+					<div class=gide><div id=g5dew></div></div>
+					</li>
+					<li class=obki>
+					<div class=gide><div id=g6dew></div></div>
+					</li>
+				</ul>
+				
+	</div>
+	
+	<div id="navioutr"></div>
+</div>
+  
+  	
+  	
+{% endblock %}

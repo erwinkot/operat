@@ -1,0 +1,13 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych dla domu{% endblock %}
+
+{% block content %}
+  <h1>Edycja danych dla domu</h1>
+  <p>Za pomocą poniższego formularza możesz edytować dane szczegółowe  dla domu</p>
+  <form action="." method="post" enctype="multipart/form-data">
+    {{ domy_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+{% endblock %}

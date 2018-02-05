@@ -1,0 +1,14 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych firmowych{% endblock %}
+
+{% block content %}
+  <h1>Edycja danych dla działki</h1>
+  <p>Za pomocą poniższego formularza możesz edytować dane szczegółowe  dla działki</p>
+  <form action="." method="post" enctype="multipart/form-data">
+    {{ dzialki_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+  <h1><a href="{% url "realestate:addimageitem" nieruchomosc.id %}">Edytuj zdjęcia</h1>
+{% endblock %}

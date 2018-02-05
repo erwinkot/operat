@@ -1,0 +1,15 @@
+{% extends "realestate/baseaccount1.html" %}
+
+{% block title %}Edycja danych dla mieszkania{% endblock %}
+
+{% block content %}
+  <h1>Edycja danych niruchomości dewelopera</h1>
+  <h1>Numer transakcji {{ nieruchomosc.id }} {{ nieruchomosc.nazwa }} {{ nieruchomosc.ulica }} {{ nieruchomosc.numer }} {{ nieruchomosc.miejscowosc }}</h1>
+  <h3>mieszkanios </h3>
+  <p>Za pomocą poniższego formularza możesz edytować dane szczegółowe dla nieruchomości dewelopera</p>
+  <form action="." method="post" enctype="multipart/form-data">
+    {{ mieszkania_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Zapisz zmiany"></p>
+  </form>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "realestate/baserejestr.html" %}
+
+{% block title %}detail{% endblock %}
+
+{% block content %}
+  
+  
+<div id=topik>
+   Szczegóły nieruchomości
+</div>
+     
+<div id=main>
+	<div id=glowa> 
+  
+		<h3>Użytkownik</h3>
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+		<p>e-mail: {{ user.email }}</p>
+		<p>Firma: {{ user.profile.firma }}</p>
+		<p>NIP: {{ user.profile.firma.nip }}</p>
+			
+	</div>
+		
+	<div id=szczegdet>      
+		
+			
+        <h3>Numer transakcji: {{ nieruchomosc.id }}</h3>         
+		<h3>{{ nieruchomosc.nazwa_opis }}</h3>
+		<h3>{{ nieruchomosc.miejscowosc }}</h3>
+		<h3>Ulica {{ nieruchomosc.ulica }} {{ nieruchomosc.numer }}</h3>
+		<h2>Cena nieruchomości {{ nieruchomosc.cena }} </h2>
+        <h2>cena za m kwadratowy {{ nieruchomosc.cenamq }} zł </h2>
+			
+		<div id=dzialki>
+			<h1>DZIALKI</h1>
+			<h3>Powierzchnia działki {{ nieruchomosc.dzialki.powi_dzialki }} </h3>
+			<h3>Status działki {{ nieruchomosc.dzialki.status_dzial }} </h3>	
+			<h3>Przeznaczenie działki {{ nieruchomosc.dzialki.przeznaczenie_dzial }} </h3>
+            <h3>Informacje o mpzp {{ nieruchomosc.dzialki.info_mpzp }} </h3>
+		</div>
+			
+		<div id=domy>
+			<h1>DOMY</h1>
+			<h3>Powierzchnia domu {{ nieruchomosc.domys.powierz_domu }}</h3>
+			<h3>Powierzchnia działki {{ nieruchomosc.domys.powierz_dzial }}</h3>
+			<h3>Status działki {{ nieruchomosc.domys.status_dzial }}</h3>
+			<h3>Rodzaj domu {{ nieruchomosc.domys.rodzaj_domu }}</h3>
+			<h3>Ilość kondygnacji {{ nieruchomosc.domys.ilosc_kond }}</h3>
+			<h3>Ilość pokoi {{ nieruchomosc.domys.ilosc_pokoi }}</h3>
+			<h3>Ilość łazienek {{ nieruchomosc.domys.ilosc_lazen }}</h3>
+			<h3>Ilość kuchni {{ nieruchomosc.domys.ilosc_kuchni }}</h3>
+			<h3>Piwnice {{ nieruchomosc.domys.piwnice }}</h3>
+			<h3>Garaż {{ nieruchomosc.domys.garaz }}</h3>
+		</div>
+			
+		<div id=mieszkania>
+			<h1>MIESZKANIA</h1>
+			<h3>Powierzchnia mieszkania {{ nieruchomosc.mieszkanias.powierz_mieszkania }}</h3>
+			<h3>Rodzaj mieszkania {{ nieruchomosc.domys.rodzaj_mieszkania }}</h3>
+		</div>
+		<div id=komercyjne>
+			KOMERCYJNE
+			<h5>Powierzchnia mieszkania {{ nieruchomosc.mieszkanias.powierz_mieszkania }}</h5>
+			<h5>Rodzaj mieszkania {{ nieruchomosc.domys.rodzaj_mieszkania }}</h5>
+		</div>
+	</div>		
+		
+	<div id=prezentacja>
+			{% for imageitem in imageitems %}
+				 <img src="{{ imageitem.image.url }}">
+			{% endfor %}
+	</div>
+			
+		
+</div>
+  <h1 id=eddzialki><a href="{% url "realestate:editnieruchdzi" nieruchomosc.id %}">Edytuj działki</a></h1>
+  <h1 id=eddomy><a href="{% url "realestate:editnieruchdom" nieruchomosc.id %}">Edytuj domy</a></h1>
+  <h1 id=edmieszkania><a href="{% url "realestate:editnieruchmie" nieruchomosc.id %}">Edytuj mieszkania</a></h1>
+  <h1 id=edmieszkania><a href="{% url "realestate:editnieruchkom" nieruchomosc.id %}">Edytuj komercyjne</a></h1>
+  <h1><a href="{% url "realestate:addimageitem" nieruchomosc.id %}">Edytuj zdjęcia</a></h1>
+{% endblock %}
